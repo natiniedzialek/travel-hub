@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row d-flex align-items-stretch">
+        <div class="col-md-4" *ngFor="let trip of trips">
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="img-container">
+                            <img class="card-img-top" [src]="trip.image" alt="{{ trip.name }} Image">
+                        </div>
+                        <h5 class="card-title">{{ trip.name }}</h5>
+                        <p class="card-text">{{ trip.description }}</p>
+                        <p class="card-text"><strong>Destination:</strong> {{ trip.destination }}</p>
+                        <p class="card-text"><strong>Start Date:</strong> {{ trip.startDate | date:'mediumDate' }}</p>
+                        <p class="card-text"><strong>End Date:</strong> {{ trip.endDate | date:'mediumDate' }}</p>
+                        <p class="card-text"><strong>Price:</strong> ${{ trip.unitPrice }}</p>
+                        <p class="card-text"><strong>Max Participants:</strong> {{ trip.maxParticipants }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
