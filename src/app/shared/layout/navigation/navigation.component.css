@@ -1,0 +1,8 @@
+.custom-filter-button {
+    border-radius: 50%;
+    outline: none;
+}
+
+.custom-filter-button:hover {
+    color: red !important;
+}

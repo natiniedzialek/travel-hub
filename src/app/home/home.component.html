@@ -1,19 +1,50 @@
 <div class="container">
-    <div class="row d-flex align-items-stretch">
+    <div class="row d-flex">
         <div class="col-md-4" *ngFor="let trip of trips">
             <div class="card-container">
-                <div class="card">
+                <div class="card" [ngStyle]="{
+                    'border-color': trip.unitPrice === getMaxPrice() ? '#D65C5C' : (trip.unitPrice === getMinPrice() ? '#ABD194' : 'transparent')
+                }">
                     <div class="card-body">
                         <div id="img-container">
                             <img class="card-img-top" [src]="trip.image" alt="{{ trip.name }} Image">
                         </div>
                         <h5 class="card-title">{{ trip.name }}</h5>
                         <p class="card-text">{{ trip.description }}</p>
-                        <p class="card-text"><strong>Destination:</strong> {{ trip.destination }}</p>
-                        <p class="card-text"><strong>Start Date:</strong> {{ trip.startDate | date:'mediumDate' }}</p>
-                        <p class="card-text"><strong>End Date:</strong> {{ trip.endDate | date:'mediumDate' }}</p>
-                        <p class="card-text"><strong>Price:</strong> ${{ trip.unitPrice }}</p>
-                        <p class="card-text"><strong>Max Participants:</strong> {{ trip.maxParticipants }}</p>
+                        <p class="card-text"><strong>Destination:</strong> {{ trip.destination.toUpperCase() }}</p>
+                        <p class="card-text"><strong>Start Date:</strong> {{ trip.startDate }}</p>
+                        <p class="card-text"><strong>End Date:</strong> {{ trip.endDate }}</p>
+                        <p class="card-text"><strong>Price:</strong> {{ trip.unitPrice | currencyFormat:selectedCurrencyCode }}</p>
+                        <p class="card-text"  [ngStyle]="{
+                            color: placesLeft[trip.name] > 3 && placesLeft[trip.name] != 0 ? '' : '#FF0000',
+                            }"><strong [ngStyle]="{
+                                color: placesLeft[trip.name] > 3 && placesLeft[trip.name] != 0 ? '' : '#FF0000',
+                                }">Places left:</strong> {{ placesLeft[trip.name] }}</p>
+                        <div class="card-buttons">
+                            <button class="btn btn-dark"
+                                (click)="handlePlusClick(trip.name)" [ngStyle]="{
+                                    'background-color': getReservations(trip.name) < placesLeft[trip.name] ? '' : '#ffffff',
+                                    color: getReservations(trip.name) < placesLeft[trip.name] ? '' : '#ffffff',
+                                    cursor: getReservations(trip.name) < placesLeft[trip.name] ? '' : 'not-allowed',
+                                    'border-color': getReservations(trip.name) < placesLeft[trip.name] ? '' : '#ffffff'
+                                  }" [disabled]="getReservations(trip.name) >= placesLeft[trip.name]">+</button>
+                                  <span class="reservationCount">
+                                    <ng-container *ngIf="placesLeft[trip.name] === 0; else reservationsCount">
+                                    </ng-container>
+                                    <ng-template #reservationsCount>
+                                      {{ getReservations(trip.name) }}
+                                    </ng-template>
+                                  </span>
+                            <button class="btn btn-dark" (click)="handleMinusClick(trip.name)" [ngStyle]="{
+                                    'background-color': getReservations(trip.name) > 0 ? '' : '#ffffff',
+                                    color: getReservations(trip.name) > 0 ? '' : '#ffffff',
+                                    cursor: getReservations(trip.name) > 0 ? '' : 'not-allowed',
+                                    'border-color': getReservations(trip.name) > 0 ? '' : '#ffffff'
+                                  }" [disabled]="getReservations(trip.name) === 0">-</button>
+                        </div>
+                        <div *ngIf="placesLeft[trip.name] === 0" class="sold-out-overlay">
+                            <h1>SOLD OUT</h1>
+                        </div>
                     </div>
                 </div>
             </div>

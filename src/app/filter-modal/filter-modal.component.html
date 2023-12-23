@@ -1,0 +1,20 @@
+<div mat-dialog-content>
+    <h2>Filter Modal</h2>
+
+    <form>
+      <mat-form-field>
+        <mat-label>Filter Option 1</mat-label>
+        <input matInput placeholder="Enter Filter Option 1" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Filter Option 2</mat-label>
+        <input matInput placeholder="Enter Filter Option 2" />
+      </mat-form-field>
+
+
+
+      <button mat-button color="primary" (click)="applyFilters()">Apply Filters</button>
+      <button mat-button color="warn" (click)="close()">Close</button>
+    </form>
+  </div>

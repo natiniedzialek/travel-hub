@@ -1,4 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { TripService } from '../../../core/services/trip.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -7,14 +9,18 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class FooterComponent {
   basketCount: number = 0;
+  private userId = 1;
 
-  @Output() basketClicked = new EventEmitter<void>();
+  constructor(
+    private tripService: TripService,
+    private router: Router
+  ) { }
 
   updateBasketCount(newCount: number) {
     this.basketCount = newCount;
   }
 
   handleBasketClick() {
-    return;
+    this.router.navigate(['/cart', this.userId]);
   }
 }
