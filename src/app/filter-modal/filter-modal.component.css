@@ -1,0 +1,3 @@
+.mat-dialog-content {
+    z-index: 20000; /* Adjust this value as needed, make it higher than the navbar's z-index */
+}

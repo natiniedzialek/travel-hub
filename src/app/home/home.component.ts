@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TripService } from '../core/services/trip.service';
 import { Trip } from '../core/models/trip';
-import { CurrencyFormatPipe } from '../core/pipes/currency-format.pipe';
 
 @Component({
   selector: 'app-home',
@@ -49,5 +48,9 @@ export class HomeComponent implements OnInit {
 
   handleMinusClick(tripName: string): void {
     this.tripService.removeReservation(tripName);
+  }
+
+  handleRemoveClick(tripName: string): void {
+    this.tripService.removeTrip(tripName);
   }
 }

@@ -20,13 +20,29 @@ body {
 
 .footer i {
   margin-right: 10px;
-  font-size: 40px; /* Adjust the font size of the basket icon */
+  font-size: 40px;
   cursor: pointer;
   color: #333333;
 }
 
 .basket-count {
   font-weight: bold;
-  font-size: 40px; /* Adjust the font size of the basket count */
+  font-size: 40px;
   color: #333333;
+}
+
+.green-outline {
+  text-shadow:
+  -1px -1px 0 #31931b,
+   1px -1px 0 #31931b,
+  -1px  1px 0 #31931b,
+   1px  1px 0 #31931b;
+}
+
+.red-outline {
+  text-shadow:
+  -1px -1px 0 #ff5555,
+   1px -1px 0 #ff5555,
+  -1px  1px 0 #ff5555,
+   1px  1px 0 #ff5555;
 }

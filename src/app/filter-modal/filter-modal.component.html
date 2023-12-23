@@ -1,18 +1,30 @@
-<div mat-dialog-content>
+<div mat-dialog-content fixed-top>
     <h2>Filter Modal</h2>
 
     <form>
       <mat-form-field>
-        <mat-label>Filter Option 1</mat-label>
-        <input matInput placeholder="Enter Filter Option 1" />
+        <mat-label>Destination</mat-label>
+        <input matInput placeholder="Enter destination" [(ngModel)]="filterDestination" />
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Filter Option 2</mat-label>
-        <input matInput placeholder="Enter Filter Option 2" />
+        <mat-label>Unit Price</mat-label>
+        <input matInput placeholder="Enter unit price" [(ngModel)]="filterUnitPrice" />
       </mat-form-field>
 
+      <mat-form-field>
+        <mat-label>Start Date</mat-label>
+        <input matInput [matDatepicker]="startDatePicker" placeholder="Choose start date" [(ngModel)]="filterStartDate">
+        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+      </mat-form-field>
 
+      <mat-form-field>
+        <mat-label>End Date</mat-label>
+        <input matInput [matDatepicker]="endDatePicker" placeholder="Choose end date" [(ngModel)]="filterEndDate">
+        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatePicker></mat-datepicker>
+      </mat-form-field>
 
       <button mat-button color="primary" (click)="applyFilters()">Apply Filters</button>
       <button mat-button color="warn" (click)="close()">Close</button>

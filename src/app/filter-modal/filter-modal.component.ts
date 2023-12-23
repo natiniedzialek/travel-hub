@@ -7,6 +7,10 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrl: './filter-modal.component.css'
 })
 export class FilterModalComponent {
+  filterDestination: string = '';
+  filterUnitPrice: number = 2000;
+  filterStartDate: Date = new Date();
+  filterEndDate: Date = new Date();
 
   constructor(private dialogRef: MatDialogRef<FilterModalComponent>) {}
 

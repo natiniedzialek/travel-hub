@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Exploring the Amazon Rainforest",
+    "destination": "Brazil",
+    "startDate": "2023-07-01",
+    "endDate": "2023-07-10",
+    "unitPrice": 2500,
+    "maxParticipants": 3,
+    "description": "Discover the beauty and biodiversity of the Amazon Rainforest on this exciting expedition.",
+    "image": "https://cdn.pixabay.com/photo/2018/01/30/22/48/rainforest-3119822_1280.jpg"
+  },
+  {
+    "name": "Historical Tour of Rome",
+    "destination": "Italy",
+    "startDate": "2023-09-15",
+    "endDate": "2023-09-22",
+    "unitPrice": 1800,
+    "maxParticipants": 15,
+    "description": "Immerse yourself in the rich history of Rome with visits to iconic landmarks and ancient ruins.",
+    "image": "https://cdn.pixabay.com/photo/2016/11/05/08/31/rome-1799670_1280.jpg"
+  },
+  {
+    "name": "Safari Adventure in Serengeti",
+    "destination": "Tanzania",
+    "startDate": "2023-06-05",
+    "endDate": "2023-06-15",
+    "unitPrice": 3000,
+    "maxParticipants": 12,
+    "description": "Experience the thrill of a safari in the Serengeti National Park, home to diverse wildlife.",
+    "image": "https://cdn.pixabay.com/photo/2014/03/17/14/34/elephant-289134_640.jpg"
+  },
+  {
+    "name": "Cultural Journey through Kyoto",
+    "destination": "Japan",
+    "startDate": "2023-10-10",
+    "endDate": "2023-10-18",
+    "unitPrice": 2200,
+    "maxParticipants": 0,
+    "description": "Explore the traditional culture of Kyoto, visit temples, and enjoy authentic Japanese cuisine.",
+    "image": "https://cdn.pixabay.com/photo/2020/07/23/01/16/heritage-5430081_640.jpg"
+  },
+  {
+    "name": "Relaxing Retreat in Bali",
+    "destination": "Indonesia",
+    "startDate": "2023-08-20",
+    "endDate": "2023-08-28",
+    "unitPrice": 1700,
+    "maxParticipants": 25,
+    "description": "Unwind in the serene beaches of Bali and experience the island's unique culture.",
+    "image": "https://cdn.pixabay.com/photo/2017/11/24/21/49/bali-2975787_640.jpg"
+  },
+  {
+    "name": "Adventure in the Swiss Alps",
+    "destination": "Switzerland",
+    "startDate": "2023-05-01",
+    "endDate": "2023-05-10",
+    "unitPrice": 2800,
+    "maxParticipants": 15,
+    "description": "Embark on an adrenaline-filled adventure in the breathtaking Swiss Alps.",
+    "image": "https://cdn.pixabay.com/photo/2016/09/19/22/46/lake-1681485_1280.jpg"
+  },
+  {
+    "name": "Mystical Journey to Machu Picchu",
+    "destination": "Peru",
+    "startDate": "2023-11-05",
+    "endDate": "2023-11-15",
+    "unitPrice": 2600,
+    "maxParticipants": 20,
+    "description": "Discover the ancient ruins of Machu Picchu and the mystical landscapes of Peru.",
+    "image": "https://cdn.pixabay.com/photo/2012/04/26/22/48/machu-picchu-43387_1280.jpg"
+  },
+  {
+    "name": "Sunset Cruise in Santorini",
+    "destination": "Greece",
+    "startDate": "2023-07-25",
+    "endDate": "2023-08-02",
+    "unitPrice": 2000,
+    "maxParticipants": 10,
+    "description": "Sail through the crystal-clear waters of Santorini and witness breathtaking sunsets.",
+    "image": "https://cdn.pixabay.com/photo/2015/10/20/15/58/greece-997937_1280.jpg"
+  },
+  {
+    "name": "Wildlife Safari in Kruger National Park",
+    "destination": "South Africa",
+    "startDate": "2023-09-01",
+    "endDate": "2023-09-10",
+    "unitPrice": 3200,
+    "maxParticipants": 15,
+    "description": "Encounter the incredible wildlife of Kruger National Park on this unforgettable safari.",
+    "image": "https://cdn.pixabay.com/photo/2017/03/31/15/41/giraffe-2191662_640.jpg"
+  },
+  {
+    "name": "Scenic Road Trip along the Pacific Coast Highway",
+    "destination": "United States",
+    "startDate": "2023-06-20",
+    "endDate": "2023-06-28",
+    "unitPrice": 1900,
+    "maxParticipants": 12,
+    "description": "Drive along the stunning Pacific Coast Highway and enjoy breathtaking coastal views.",
+    "image": "https://cdn.pixabay.com/photo/2016/08/16/11/18/pacific-coast-highway-1597725_1280.jpg"
+  }
+]

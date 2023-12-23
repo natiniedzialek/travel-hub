@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" [ngClass]="{'green-outline': getBasketValue() > 4, 'red-outline': getBasketValue() <= 4}">
     <span (click)="handleBasketClick()"><i class="bi bi-basket3-fill"></i></span>
-    <span class="basket-count">{{ basketCount }}</span>
+    <span class="basket-count">{{ getBasketValue() }}</span>
 </footer>

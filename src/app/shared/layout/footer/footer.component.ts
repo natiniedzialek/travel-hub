@@ -1,6 +1,7 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { TripService } from '../../../core/services/trip.service';
 import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-footer',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-  basketCount: number = 0;
+  basketCount$: number = 0;
   private userId = 1;
 
   constructor(
@@ -16,11 +17,11 @@ export class FooterComponent {
     private router: Router
   ) { }
 
-  updateBasketCount(newCount: number) {
-    this.basketCount = newCount;
+  getBasketValue(): number {
+    return this.tripService.getReservationValue();
   }
 
-  handleBasketClick() {
+  handleBasketClick(): void {
     this.router.navigate(['/cart', this.userId]);
   }
 }

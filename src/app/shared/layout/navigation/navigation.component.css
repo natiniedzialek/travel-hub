@@ -6,3 +6,7 @@
 .custom-filter-button:hover {
     color: red !important;
 }
+
+.fixed-top {
+    z-index: 1000;
+}
