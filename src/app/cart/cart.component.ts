@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-cart',
@@ -8,12 +7,4 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class CartComponent {
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
-
-  ngOnInit(): void {
-    const userId = this.route.snapshot.paramMap.get('id');
-  }
 }

@@ -1,4 +1,6 @@
-<footer class="footer" [ngClass]="{'green-outline': getBasketValue() > 4, 'red-outline': getBasketValue() <= 4}">
+<footer class="footer" [ngClass]="{'green-outline': getCartNumber() > 4, 'red-outline': getCartNumber() <= 4}">
+    <span class="basket-count">{{ getCartNumber() }}</span>
     <span (click)="handleBasketClick()"><i class="bi bi-basket3-fill"></i></span>
-    <span class="basket-count">{{ getBasketValue() }}</span>
+    <span class="basket-count">{{ getCartValue() |
+        currencyFormat:currencyCode }}</span>
 </footer>

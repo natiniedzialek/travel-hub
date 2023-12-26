@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TripService } from '../core/services/trip.service';
 import { Trip } from '../core/models/trip';
+import { CurrencyService } from '../core/services/currency.service';
+import { FilterService } from '../core/services/filter.service';
+import { Filter } from '../core/models/filter';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +12,25 @@ import { Trip } from '../core/models/trip';
 })
 export class HomeComponent implements OnInit {
   trips: Trip[] = [];
-  selectedCurrencyCode: string = 'PLN';
+  currencyCode: string = this.currencyService.getCurrency();
   placesLeft: any;
+  appliedFilter!: Filter;
 
-  constructor(private tripService: TripService) {}
+  constructor(
+    private tripService: TripService,
+    private currencyService: CurrencyService,
+    private filterService: FilterService
+  ) { }
 
   ngOnInit(): void {
-    this.getTrips();
     this.getPlacesLeft();
+    this.currencyService.currencyChange$.subscribe(newCurrency => {
+      this.currencyCode = newCurrency
+    });
+    this.filterService.filter$.subscribe((filter) => {
+      this.appliedFilter = filter;
+      this.getTrips();
+    });
   }
 
   private getTrips(): void {
@@ -25,17 +39,20 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  public setTrips(trips: Trip[]): void {
+    this.trips = trips;
+  }
+
   private getPlacesLeft(): void {
     this.placesLeft = this.tripService.getPlacesLeft();
   }
 
   getMaxPrice(): number {
-    console.log(Math.max(...this.trips.map(trip => trip.unitPrice)))
     return Math.max(...this.trips.map(trip => trip.unitPrice));
   }
 
   getMinPrice(): number {
-      return Math.min(...this.trips.map(trip => trip.unitPrice));
+    return Math.min(...this.trips.map(trip => trip.unitPrice));
   }
 
   getReservations(tripName: string): number {

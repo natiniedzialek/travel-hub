@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row d-flex">
-        <div class="col-md-4" *ngFor="let trip of trips">
+        <div class="col-md-4" *ngFor="let trip of trips | tripFilter: appliedFilter">
             <div class="card-container">
                 <div class="card" [ngStyle]="{
                     'border-color': trip.unitPrice === getMaxPrice() ? '#D65C5C' : (trip.unitPrice === getMinPrice() ? '#ABD194' : 'transparent')
@@ -20,7 +20,7 @@
                         <p class="card-text"><strong>Start Date:</strong> {{ trip.startDate }}</p>
                         <p class="card-text"><strong>End Date:</strong> {{ trip.endDate }}</p>
                         <p class="card-text"><strong>Price:</strong> {{ trip.unitPrice |
-                            currencyFormat:selectedCurrencyCode }}</p>
+                            currencyFormat:currencyCode }}</p>
                         <p class="card-text" [ngStyle]="{
                             color: placesLeft[trip.name] > 3 && placesLeft[trip.name] != 0 ? '' : '#FF0000',
                             }"><strong [ngStyle]="{

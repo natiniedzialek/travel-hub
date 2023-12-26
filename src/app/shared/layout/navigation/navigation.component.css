@@ -1,10 +1,11 @@
-.custom-filter-button {
-    border-radius: 50%;
-    outline: none;
+.nav-button {
+    color: rgb(176, 176, 176);
+    border:none;
 }
 
-.custom-filter-button:hover {
-    color: red !important;
+.nav-button:hover {
+    color:white;
+    background-color: rgba(31, 35, 40, 0);
 }
 
 .fixed-top {

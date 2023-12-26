@@ -8,16 +8,15 @@ export class CurrencyFormatPipe implements PipeTransform {
   private USD: number = 3.94;
 
   transform(value: number, currencyCode: string): string {
-    console.log(currencyCode);
     switch (currencyCode) {
       case 'USD':
-        return `$${value * this.USD}`;
+        return `$${(value / this.USD).toFixed(0)}`;
       case 'EUR':
-        return `${value * this.EUR} €`;
+        return `${(value / this.EUR).toFixed(0)} €`;
       case 'PLN':
         return `${value} zł`;
       default:
-        return `${value} lol`;
+        return `${value} ${currencyCode}`;
     }
   }
 }
