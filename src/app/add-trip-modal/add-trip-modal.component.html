@@ -1,0 +1,61 @@
+<div mat-dialog-content class="add-trip-dialog-content py-3">
+  <h2 class="center-text">Add New Trip</h2>
+
+  <form class="center-text">
+    <div class="custom-form-field">
+      <mat-form-field class="custom-form-field">
+        <mat-label>Trip Name</mat-label>
+        <input matInput placeholder="Enter trip name" [(ngModel)]="name" name="name" required>
+      </mat-form-field>
+      <mat-form-field class="custom-form-field">
+        <mat-label>Destination</mat-label>
+        <input matInput placeholder="Enter destination" [(ngModel)]="destination" name="destination" required>
+      </mat-form-field>
+    </div>
+
+    <div class="custom-form-field">
+      <mat-form-field class="custom-form-field">
+        <mat-label>Start Date</mat-label>
+        <input matInput [matDatepicker]="startDatePicker" placeholder="Choose start date" [(ngModel)]="startDate" name="startDate" [min]="minDate" required>
+        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+      </mat-form-field>
+    <mat-form-field class="custom-form-field">
+      <mat-label>End Date</mat-label>
+      <input matInput [matDatepicker]="endDatePicker" placeholder="Choose end date" [(ngModel)]="endDate" name="endDate" [min]="minDate" required>
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+    </div>
+
+    <div class="custom-form-field">
+    <mat-form-field class="custom-form-field">
+      <mat-label>Unit Price</mat-label>
+      <input matInput type="number" placeholder="Enter unit price" [(ngModel)]="unitPrice" name="unitPrice" required>
+    </mat-form-field>
+    <mat-form-field class="custom-form-field">
+      <mat-label>Places Left</mat-label>
+      <input matInput type="number" placeholder="Enter places left" [(ngModel)]="placesLeft" name="placesLeft" required>
+    </mat-form-field>
+    </div>
+
+    <div class="custom-form-field">
+    <mat-form-field class="custom-form-field">
+      <mat-label>Description</mat-label>
+      <textarea matInput placeholder="Enter description" [(ngModel)]="description" name="description" required></textarea>
+    </mat-form-field>
+    </div>
+
+    <div class="custom-form-field">
+    <mat-form-field class="custom-form-field">
+      <mat-label>Image URL</mat-label>
+      <input matInput placeholder="Enter image URL" [(ngModel)]="image" name="image" required>
+    </mat-form-field>
+    </div>
+
+    <div class="button-group center-text">
+      <button mat-button color="primary" (click)="saveTrip()">Save</button>
+      <button mat-button color="warn" (click)="close()">Cancel</button>
+    </div>
+  </form>
+</div>

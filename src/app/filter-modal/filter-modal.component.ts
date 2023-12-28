@@ -38,7 +38,6 @@ export class FilterModalComponent {
       this.currencyCode = newCurrency
     });
 
-    // TODO: DO NOT REPEAT VALUES in data
     trips.pipe(map(trips => trips.map(trip => trip.destination)))
       .subscribe((data: any) => this.destinations = Array.from(new Set(data)).sort());
 

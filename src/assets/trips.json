@@ -5,7 +5,7 @@
     "startDate": "2024-07-01",
     "endDate": "2024-07-10",
     "unitPrice": 4000,
-    "maxParticipants": 5,
+    "placesLeft": 5,
     "description": "Discover the beauty and biodiversity of the Amazon Rainforest on this exciting expedition.",
     "image": "https://media.istockphoto.com/id/1045035862/pl/zdj%C4%99cie/baldachim-d%C5%BCungli.jpg?s=612x612&w=0&k=20&c=E85OGH_VEGJ9EOPGglnAqJfcFmA-THTvsRblCTLoG6s="
   },
@@ -15,7 +15,7 @@
     "startDate": "2024-09-15",
     "endDate": "2024-09-22",
     "unitPrice": 3500,
-    "maxParticipants": 20,
+    "placesLeft": 20,
     "description": "Immerse yourself in the rich history of Rome with visits to iconic landmarks and ancient ruins.",
     "image": "https://media.istockphoto.com/id/501396596/pl/zdj%C4%99cie/forum-romanum.jpg?s=612x612&w=0&k=20&c=l1-5sAQl-RoYCUnGD4RDYwxmqnCOTfakNicLT-QukVE="
   },
@@ -25,7 +25,7 @@
     "startDate": "2024-06-05",
     "endDate": "2024-06-15",
     "unitPrice": 4500,
-    "maxParticipants": 15,
+    "placesLeft": 15,
     "description": "Experience the thrill of a safari in the Serengeti National Park, home to diverse wildlife.",
     "image": "https://media.istockphoto.com/id/692556208/pl/zdj%C4%99cie/afryka-tanzania-serengeti-zebry-na-drodze-w-parku-narodowym-serengeti-przed-jeepem-z.jpg?s=612x612&w=0&k=20&c=aJS2N8ESdCepkFscXGN789TzswDz80BQ5t-7WCo82sQ="
   },
@@ -35,7 +35,7 @@
     "startDate": "2024-10-10",
     "endDate": "2024-10-18",
     "unitPrice": 4000,
-    "maxParticipants": 10,
+    "placesLeft": 10,
     "description": "Explore the traditional culture of Kyoto, visit temples, and enjoy authentic Japanese cuisine.",
     "image": "https://media.istockphoto.com/id/542100226/pl/zdj%C4%99cie/yasaka-pagoda-i-sannen-zaka-ulica.jpg?s=612x612&w=0&k=20&c=NR0bzdXiJPp9VXyE7de30UItoMKu6Fropg_f0p3q3i0="
   },
@@ -45,7 +45,7 @@
     "startDate": "2024-08-20",
     "endDate": "2024-08-28",
     "unitPrice": 3500,
-    "maxParticipants": 30,
+    "placesLeft": 30,
     "description": "Unwind in the serene beaches of Bali and experience the island's unique culture.",
     "image": "https://media.istockphoto.com/id/518355150/pl/zdj%C4%99cie/pura-ulun-danu-bratan-w-wsch%C3%B3d-s%C5%82o%C5%84ca-bali-indonezja.jpg?s=612x612&w=0&k=20&c=6X0gwnnFj2mTmxttwY2y0c5mtqomly1RdN4fXPHiu2k="
   },
@@ -55,7 +55,7 @@
     "startDate": "2024-05-01",
     "endDate": "2024-05-10",
     "unitPrice": 4000,
-    "maxParticipants": 20,
+    "placesLeft": 20,
     "description": "Embark on an adrenaline-filled adventure in the breathtaking Swiss Alps.",
     "image": "https://cdn.pixabay.com/photo/2016/09/19/22/46/lake-1681485_1280.jpg"
   },
@@ -65,7 +65,7 @@
     "startDate": "2024-11-05",
     "endDate": "2024-11-15",
     "unitPrice": 3800,
-    "maxParticipants": 25,
+    "placesLeft": 25,
     "description": "Discover the ancient ruins of Machu Picchu and the mystical landscapes of Peru.",
     "image": "https://cdn.pixabay.com/photo/2012/04/26/22/48/machu-picchu-43387_1280.jpg"
   },
@@ -75,7 +75,7 @@
     "startDate": "2024-07-25",
     "endDate": "2024-08-02",
     "unitPrice": 3500,
-    "maxParticipants": 15,
+    "placesLeft": 15,
     "description": "Sail through the crystal-clear waters of Santorini and witness breathtaking sunsets.",
     "image": "https://media.istockphoto.com/id/1145450965/pl/zdj%C4%99cie/wyspa-santorini-grecja.jpg?s=612x612&w=0&k=20&c=yy6Vx2a1EWE-deST_0V68IJnCG90hRW4ATNaprDFEC8="
   },
@@ -85,7 +85,7 @@
     "startDate": "2024-09-01",
     "endDate": "2024-09-10",
     "unitPrice": 5000,
-    "maxParticipants": 20,
+    "placesLeft": 20,
     "description": "Encounter the incredible wildlife of Kruger National Park on this unforgettable safari.",
     "image": "https://media.istockphoto.com/id/532389864/pl/zdj%C4%99cie/afryka%C5%84skiego-s%C5%82o%C5%84ca-z-sylwetki.jpg?s=612x612&w=0&k=20&c=_cUBJA4D3jCWvW6RGgRkZ8GdAGgHDMXzWNr9MCbtYyU="
   },
@@ -95,7 +95,7 @@
     "startDate": "2024-06-20",
     "endDate": "2024-06-28",
     "unitPrice": 4000,
-    "maxParticipants": 15,
+    "placesLeft": 15,
     "description": "Drive along the stunning Pacific Coast Highway and enjoy breathtaking coastal views.",
     "image": "https://media.istockphoto.com/id/1096740592/pl/zdj%C4%99cie/big-sur-bridge-california-ocean-road-costline-ca-1-drone-shot.jpg?s=612x612&w=0&k=20&c=HP3PHa2-XFT3OvUZv352djSqYOSTdw1irblV0IGcbyg="
   },
@@ -105,7 +105,7 @@
     "startDate": "2024-08-10",
     "endDate": "2024-08-18",
     "unitPrice": 4500,
-    "maxParticipants": 10,
+    "placesLeft": 10,
     "description": "Experience the luxury and beauty of the Maldives with a unique island-hopping adventure.",
     "image": "https://media.istockphoto.com/id/153006184/pl/zdj%C4%99cie/malediwy-willa-stosy-na-wodzie.jpg?s=612x612&w=0&k=20&c=T8onx1VE1UP49Wh8L7rk3atkt27utv4IGt9MwH1uXrc="
   },
@@ -115,7 +115,7 @@
     "startDate": "2024-12-01",
     "endDate": "2024-12-10",
     "unitPrice": 3800,
-    "maxParticipants": 15,
+    "placesLeft": 15,
     "description": "Witness the magic of New York City during the holiday season with dazzling lights and festive atmosphere.",
     "image": "https://media.istockphoto.com/id/1406960186/pl/zdj%C4%99cie/panorama-nowego-jorku-stany-zjednoczone.jpg?s=612x612&w=0&k=20&c=hki5_d9bwCpcSngBzJti6-ZdUW5tseexy7j9-KFrYkc="
   },
@@ -125,7 +125,7 @@
     "startDate": "2024-07-05",
     "endDate": "2024-07-15",
     "unitPrice": 4800,
-    "maxParticipants": 20,
+    "placesLeft": 20,
     "description": "Embark on a breathtaking cruise through the stunning landscapes of Alaska.",
     "image": "https://media.istockphoto.com/id/1208214908/pl/zdj%C4%99cie/pi%C4%99kna-scena-zimowa-z-pokrytymi-%C5%9Bniegiem-g%C3%B3rami-i-zamarzni%C4%99t%C4%85-rzek%C4%85-z-b%C5%82%C4%99kitnym-niebem.jpg?s=612x612&w=0&k=20&c=tIEYkCtsDHbqSA0EmvQjM_mgB4cX4LccpwZN_DoalQg="
   },
@@ -135,7 +135,7 @@
     "startDate": "2024-12-15",
     "endDate": "2024-12-25",
     "unitPrice": 4200,
-    "maxParticipants": 15,
+    "placesLeft": 15,
     "description": "Chase the mesmerizing Northern Lights in the winter wonderland of Iceland.",
     "image": "https://media.istockphoto.com/id/1185457609/pl/zdj%C4%99cie/aurora-borealis-na-wyspach-lofot%C3%B3w-w-norwegii-zielona-zorza-polarna-nad-g%C3%B3rami-nocny-zimowy.jpg?s=612x612&w=0&k=20&c=sx17bwtVHEOlDJfNtCsV72MyF0aFWPFYnY8AT-IUb04="
   },
@@ -145,7 +145,7 @@
     "startDate": "2024-10-01",
     "endDate": "2024-10-10",
     "unitPrice": 3800,
-    "maxParticipants": 15,
+    "placesLeft": 15,
     "description": "Experience the awe-inspiring beauty of the Grand Canyon with a guided tour.",
     "image": "https://media.istockphoto.com/id/1349799979/pl/zdj%C4%99cie/park-narodowy-wielkiego-kanionu-z-b%C5%82%C4%99kitnym-niebem-i-chmurami.jpg?s=612x612&w=0&k=20&c=Md6Q52l-iQP-dih8kqB4s7gaFMaXkuIdvtr-POjZdw4="
   },
@@ -155,7 +155,7 @@
     "startDate": "2024-11-20",
     "endDate": "2024-11-30",
     "unitPrice": 4500,
-    "maxParticipants": 12,
+    "placesLeft": 12,
     "description": "Embark on an unforgettable trekking adventure in the majestic Himalayan mountains.",
     "image": "https://media.istockphoto.com/id/543183018/pl/zdj%C4%99cie/wsch%C3%B3d-s%C5%82o%C5%84ca-na-kanchenjugha-g%C3%B3ra-o-%C5%9Bwicie-sikkim.jpg?s=612x612&w=0&k=20&c=8J_L5-EZdmUH5Wl4PpNNlK3jgd2iIHJ3X7WRHJlS-CA="
   },
@@ -165,7 +165,7 @@
     "startDate": "2024-09-15",
     "endDate": "2024-09-25",
     "unitPrice": 3800,
-    "maxParticipants": 18,
+    "placesLeft": 18,
     "description": "Sail through the stunning Greek Islands, exploring the beauty of the Aegean Sea.",
     "image": "https://media.istockphoto.com/id/1028749698/pl/zdj%C4%99cie/akropol-ateny-grecja.jpg?s=612x612&w=0&k=20&c=NFpB_h54DoAjXGxSsK0b3_sYhninyipf1L1o4u0tbI8="
   },
@@ -175,7 +175,7 @@
     "startDate": "2024-05-15",
     "endDate": "2024-05-25",
     "unitPrice": 4000,
-    "maxParticipants": 10,
+    "placesLeft": 10,
     "description": "Dive into the mesmerizing world of the Great Barrier Reef, a UNESCO World Heritage site.",
     "image": "https://media.istockphoto.com/id/613678930/pl/zdj%C4%99cie/tropikalna-ryba-na-rafa-koralowa.jpg?s=612x612&w=0&k=20&c=9KL_M2MDrdeeGvxpByL2VAPI7vHC8xLLvk4-Y9jRvwk="
   },
@@ -185,7 +185,7 @@
     "startDate": "2024-08-05",
     "endDate": "2024-08-15",
     "unitPrice": 3700,
-    "maxParticipants": 15,
+    "placesLeft": 15,
     "description": "Immerse yourself in the rich cultural heritage of Istanbul, where East meets West.",
     "image": "https://cdn.pixabay.com/photo/2018/12/31/18/27/mosque-3905675_640.jpg"
   },
@@ -195,7 +195,7 @@
     "startDate": "2024-06-10",
     "endDate": "2024-06-20",
     "unitPrice": 3900,
-    "maxParticipants": 15,
+    "placesLeft": 15,
     "description": "Embark on the Inca Trail and witness the breathtaking beauty of Rainbow Mountain.",
     "image": "https://media.istockphoto.com/id/697536378/pl/zdj%C4%99cie/vinicunca-region-cusco-peru.jpg?s=612x612&w=0&k=20&c=EtaGYxXER6KQBhcwiIchUIHypR1Mhubb6ZQQ80aaM68="
   },
@@ -205,7 +205,7 @@
     "startDate": "2024-07-10",
     "endDate": "2024-07-20",
     "unitPrice": 4500,
-    "maxParticipants": 12,
+    "placesLeft": 12,
     "description": "Indulge in a luxury yacht experience, exploring the turquoise waters of the Caribbean.",
     "image": "https://media.istockphoto.com/id/1133073540/pl/zdj%C4%99cie/tropikalna-pla%C5%BCa-i-pi%C4%99kny-widok-na-wsch%C3%B3d-s%C5%82o%C5%84ca-w-zatoce-punta-cana-dominikana.jpg?s=612x612&w=0&k=20&c=FpCdBB7ZPj0U6A0P-6C0a3mo7fzJI1lKe-E0B6Vi5cM="
   },
@@ -215,7 +215,7 @@
     "startDate": "2024-12-10",
     "endDate": "2024-12-20",
     "unitPrice": 3700,
-    "maxParticipants": 8,
+    "placesLeft": 8,
     "description": "Experience the romance of Venice with a private gondola ride through its picturesque canals.",
     "image": "https://cdn.pixabay.com/photo/2017/06/28/15/32/venice-2451047_640.jpg"
   }

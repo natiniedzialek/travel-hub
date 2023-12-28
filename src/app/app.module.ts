@@ -18,13 +18,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { CoreModule } from './core/core.module';
+import { AddTripModalComponent } from './add-trip-modal/add-trip-modal.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FilterModalComponent,
-    CartComponent
+    CartComponent,
+    AddTripModalComponent
   ],
   imports: [
     BrowserModule,

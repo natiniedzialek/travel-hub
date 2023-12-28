@@ -1,67 +1,53 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Trip } from '../models/trip';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TripService {
-  private tripsUrl = 'assets/trips.json';
-  private placesLeft: { [key: string]: number } = {};
-  private reservations: { [key: string]: number } = {};
+  private tripsCollection: AngularFirestoreCollection<Trip>;
 
-  constructor(private http: HttpClient) {
-    this.fetchTrips().subscribe({next: (data) => {
-      for (const trip of data) {
-        this.placesLeft[trip.name] = trip.maxParticipants;
-      }
-    }});
+  constructor(private firestore: AngularFirestore) {
+    this.tripsCollection = this.firestore.collection<Trip>('trips');
+  }
+
+  addTrip(trip: Trip): Promise<any> {
+    trip.id = this.firestore.createId();
+    const tripData = JSON.parse(JSON.stringify(trip));
+    return this.tripsCollection.add(tripData)
+    .catch(error => {
+      console.error('Error adding trip: ', error);
+    });
   }
 
   getTrips(): Observable<Trip[]> {
-    return this.fetchTrips();
+    return this.tripsCollection.snapshotChanges().pipe(
+      map((actions) =>
+        actions.map((a) => {
+          const data = a.payload.doc.data() as Trip;
+          return data;
+        })
+      )
+    );
   }
 
-  private fetchTrips(): Observable<Trip[]> {
-    return this.http.get<Trip[]>(this.tripsUrl);
+  deleteTrip(tripId: string) {
+    this.tripsCollection.ref.where('id', '==', tripId).get().then(querySnapshot => {
+      return this.tripsCollection.doc(querySnapshot.docs[0].id).delete();
+    });
   }
 
-  getPlacesLeft(): { [key: string]: number } {
-    return this.placesLeft;
-  }
-
-  getReservations(tripName: string): number {
-    if(tripName in this.reservations) {
-      return this.reservations[tripName];
-    }
-    return 0;
-  }
-
-  addReservation(tripName: string): void {
-    if(!(tripName in this.reservations)) {
-      this.reservations[tripName] = 0;
-    }
-    this.reservations[tripName]++;
-  }
-
-  removeReservation(tripName: string): void {
-    this.reservations[tripName]--;
-    if(this.reservations[tripName] == 0) {
-      delete this.reservations[tripName];
-    }
-  }
-
-  getReservationNumber(): number {
-    return Object.values(this.reservations).reduce((acc, currentValue) => acc + currentValue, 0);
-  }
 
   // TODO
-  getReservationValue(): number {
-    return 2500;
+  getReservationNumber(): number {
+    return 10;
   }
 
-  removeTrip(tripName: string): void {
-    console.log("trip deleted");
+  // TODO: implement
+  getReservationValue(): number {
+    return 2000;
   }
 }

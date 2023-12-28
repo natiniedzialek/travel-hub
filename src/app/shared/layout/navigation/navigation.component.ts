@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FilterModalComponent } from '../../../filter-modal/filter-modal.component';
+import { AddTripModalComponent } from '../../../add-trip-modal/add-trip-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CurrencyService } from '../../../core/services/currency.service';
 import { TripService } from '../../../core/services/trip.service';
@@ -16,6 +17,15 @@ export class NavigationComponent {
     private currencyService: CurrencyService,
     private tripService: TripService
   ) {}
+
+  openAddTripModal(): void {
+    const dialogRef = this.dialog.open(AddTripModalComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
+  }
 
   openFilterModal(): void {
     const dialogRef = this.dialog.open(FilterModalComponent, {
