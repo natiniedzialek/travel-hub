@@ -28,7 +28,9 @@
                                 }">Places left:</strong> {{ trip.placesLeft }}</p>
                         <div class="card-buttons">
                             <button class="btn btn-dark" (click)="handlePlusClick(trip.id)"
-                                [ngClass]="{'button-diss': getReservationCount(trip.id) >= trip.placesLeft}"
+                                [ngStyle]="{
+                                    'opacity': getReservationCount(trip.id) >= trip.placesLeft ? '0' : ''
+                                }"
                                 [disabled]="getReservationCount(trip.id) >= trip.placesLeft">+</button>
                             <span class="reservationCount">
                                 <ng-container *ngIf="trip.placesLeft === 0; else reservationsCount">
@@ -38,7 +40,9 @@
                                 </ng-template>
                             </span>
                             <button class="btn btn-dark" (click)="handleMinusClick(trip.id)"
-                                [ngClass]="{'button-diss': getReservationCount(trip.id) === 0}"
+                                [ngStyle]="{
+                                    'opacity': getReservationCount(trip.id) === 0 ? '0' : ''
+                                }"
                                 [disabled]="getReservationCount(trip.id) === 0">-</button>
                         </div>
                         <div *ngIf="trip.placesLeft === 0" class="sold-out-overlay">
