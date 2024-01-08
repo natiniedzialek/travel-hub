@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { Observable, from } from 'rxjs';
-import { Reservation } from '../models/reservation';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { map, switchMap } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {Reservation} from '../models/reservation';
+import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +18,7 @@ export class ReservationService {
     return this.reservationsCollection.snapshotChanges().pipe(
       map((actions) =>
         actions.map((a) => {
-          const data = a.payload.doc.data() as Reservation;
-          return data;
+          return a.payload.doc.data() as Reservation;
         })
       )
     );
@@ -51,9 +50,22 @@ export class ReservationService {
           tripId: tripId,
           userId: '1',
           count: 1,
+          selected: true
         };
         this.reservationsCollection.add(newReservation);
       }
+    });
+  }
+
+  selectReservation(tripId: string) {
+    this.reservationsCollection.ref.where('tripId', '==', tripId).get().then(querySnapshot => {
+      this.reservationsCollection.doc(querySnapshot.docs[0].id).update({ selected: true });
+    });
+  }
+
+  unselectReservation(tripId: string) {
+    this.reservationsCollection.ref.where('tripId', '==', tripId).get().then(querySnapshot => {
+      this.reservationsCollection.doc(querySnapshot.docs[0].id).update({ selected: false });
     });
   }
 }

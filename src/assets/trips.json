@@ -139,6 +139,7 @@
     "description": "Chase the mesmerizing Northern Lights in the winter wonderland of Iceland.",
     "image": "https://media.istockphoto.com/id/1185457609/pl/zdj%C4%99cie/aurora-borealis-na-wyspach-lofot%C3%B3w-w-norwegii-zielona-zorza-polarna-nad-g%C3%B3rami-nocny-zimowy.jpg?s=612x612&w=0&k=20&c=sx17bwtVHEOlDJfNtCsV72MyF0aFWPFYnY8AT-IUb04="
   },
+  # !!!!!!!!!!!!!!!!!!!!!!!!!!!,
   {
     "name": "Breathtaking Views of Grand Canyon",
     "destination": "United States",
@@ -159,16 +160,18 @@
     "description": "Embark on an unforgettable trekking adventure in the majestic Himalayan mountains.",
     "image": "https://media.istockphoto.com/id/543183018/pl/zdj%C4%99cie/wsch%C3%B3d-s%C5%82o%C5%84ca-na-kanchenjugha-g%C3%B3ra-o-%C5%9Bwicie-sikkim.jpg?s=612x612&w=0&k=20&c=8J_L5-EZdmUH5Wl4PpNNlK3jgd2iIHJ3X7WRHJlS-CA="
   },
+  # !!!!!!!!!!!!!!!!!!!
   {
     "name": "Cruise to the Greek Islands",
     "destination": "Greece",
     "startDate": "2024-09-15",
     "endDate": "2024-09-25",
-    "unitPrice": 3800,
+    "unitPrice": 3100,
     "placesLeft": 18,
     "description": "Sail through the stunning Greek Islands, exploring the beauty of the Aegean Sea.",
     "image": "https://media.istockphoto.com/id/1028749698/pl/zdj%C4%99cie/akropol-ateny-grecja.jpg?s=612x612&w=0&k=20&c=NFpB_h54DoAjXGxSsK0b3_sYhninyipf1L1o4u0tbI8="
   },
+  # !!!!!!!!!!!!!!
   {
     "name": "Exploration of the Great Barrier Reef",
     "destination": "Australia",
@@ -209,6 +212,7 @@
     "description": "Indulge in a luxury yacht experience, exploring the turquoise waters of the Caribbean.",
     "image": "https://media.istockphoto.com/id/1133073540/pl/zdj%C4%99cie/tropikalna-pla%C5%BCa-i-pi%C4%99kny-widok-na-wsch%C3%B3d-s%C5%82o%C5%84ca-w-zatoce-punta-cana-dominikana.jpg?s=612x612&w=0&k=20&c=FpCdBB7ZPj0U6A0P-6C0a3mo7fzJI1lKe-E0B6Vi5cM="
   },
+  # !!!!!!!!!!!!!!!!!!
   {
     "name": "Gondola Ride in Venice",
     "destination": "Italy",

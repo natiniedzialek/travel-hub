@@ -1,41 +1,70 @@
-import { Component } from '@angular/core';
-import { TripService } from '../../../core/services/trip.service';
-import { Router } from '@angular/router';
-import { MatDialogRef } from '@angular/material/dialog';
-import { CurrencyService } from '../../../core/services/currency.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {CurrencyService} from '../../../core/services/currency.service';
+import {ReservationService} from '../../../core/services/reservation.service';
+import {Reservation} from '../../../core/models/reservation';
+import {TripService} from "../../../core/services/trip.service";
+import {Trip} from "../../../core/models/trip";
+import {Observable, zip} from "rxjs";
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+    selector: 'app-footer', templateUrl: './footer.component.html', styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-  cartPrice$: number = 0;
-  basketCount$: number = 0;
-  private userId = 1;
-  currencyCode: string = this.currencyService.getCurrency();
+    reservations$ = this.reservationService.getReservations();
+    reservations: Reservation[];
+    trips$: Observable<Trip[]> = this.tripService.getTrips();
+    trips: Trip[];
+    cartCount: number;
+    private userId: number = 1;
+    currencyCode: string = this.currencyService.getCurrency();
+    total: number;
 
-  constructor(
-    private tripService: TripService,
-    private router: Router,
-    private currencyService: CurrencyService
-  ) { }
+    constructor(
+        private tripService: TripService,
+        private reservationService: ReservationService,
+        private router: Router,
+        private currencyService: CurrencyService) {
+    }
 
-  ngOnInit(): void {
-    this.currencyService.currencyChange$.subscribe(newCurrency => {
-      this.currencyCode = newCurrency
-    });
-  }
+    ngOnInit(): void {
+        this.currencyService.currencyChange$.subscribe(newCurrency => {
+            this.currencyCode = newCurrency
+        });
+        this.getCartCount();
+        this.trips$.subscribe((trips: Trip[]) => {
+            this.trips = trips;
+        });
 
-  getCartNumber(): number {
-    return this.tripService.getReservationNumber();
-  }
+        this.reservations$.subscribe((reservations: Reservation[]) => {
+            this.reservations = reservations;
+            this.total = this.getTotal();
+        });
 
-  getCartValue(): number {
-    return this.tripService.getReservationValue();
-  }
+        zip(this.trips$, this.reservations$).subscribe(
+            ([trips, reservations]) => {
+                this.trips = trips;
+                this.reservations = reservations;
+                this.total = this.getTotal();
+            });
+    }
 
-  handleBasketClick(): void {
-    this.router.navigate(['/cart', this.userId]);
-  }
+    private getCartCount(): void {
+        this.reservationService.getReservations().subscribe((reservations: Reservation[]) => {
+            this.cartCount = reservations.reduce((acc, reservation) => acc + reservation.count, 0);
+        });
+    }
+
+    private getTotal(): number {
+        if(this.reservations === undefined || this.trips === undefined) return 0;
+        return this.reservations
+            .reduce((total: number, reservation: Reservation) => {
+                const trip = this.trips.find((trip: Trip) => trip.id === reservation.tripId);
+                return total + trip.unitPrice * reservation.count;
+            }, 0);
+    }
+
+    handleBasketClick(): void {
+        this.router.navigate(['/cart', this.userId]);
+    }
 }

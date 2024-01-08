@@ -4,7 +4,7 @@ import { Trip } from '../core/models/trip';
 import { CurrencyService } from '../core/services/currency.service';
 import { FilterService } from '../core/services/filter.service';
 import { Filter } from '../core/models/filter';
-import { Observable, map, of } from 'rxjs';
+import { map } from 'rxjs';
 import { ReservationService } from '../core/services/reservation.service';
 import { Reservation } from '../core/models/reservation';
 

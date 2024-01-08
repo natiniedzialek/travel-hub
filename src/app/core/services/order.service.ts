@@ -13,4 +13,8 @@ export class OrderService {
   constructor(private firestore: AngularFirestore) {
     this.ordersCollection = this.firestore.collection<Order>('orders');
   }
+
+  addOrder(order: Order): void {
+    console.log("Order added to database!")
+  }
 }

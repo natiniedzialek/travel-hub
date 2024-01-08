@@ -14,7 +14,7 @@ export class TripService {
     this.tripsCollection = this.firestore.collection<Trip>('trips');
   }
 
-  addTrip(trip: Trip): Promise<any> {
+  async addTrip(trip: Trip): Promise<any> {
     trip.id = this.firestore.createId();
     const tripData = JSON.parse(JSON.stringify(trip));
     return this.tripsCollection.add(tripData)
@@ -38,16 +38,5 @@ export class TripService {
     this.tripsCollection.ref.where('id', '==', tripId).get().then(querySnapshot => {
       return this.tripsCollection.doc(querySnapshot.docs[0].id).delete();
     });
-  }
-
-
-  // TODO
-  getReservationNumber(): number {
-    return 10;
-  }
-
-  // TODO: implement
-  getReservationValue(): number {
-    return 2000;
   }
 }
