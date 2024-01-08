@@ -33,7 +33,6 @@ export class AddTripModalComponent {
   }
 
   saveTrip(): void {
-    console.log("wtf")
     this.tripService.addTrip(new Trip(this.name, this.destination, this.startDate, this.endDate, this.unitPrice, this.placesLeft, this.description, this.image))
       .then(() => {
         console.log('Trip added successfully');

@@ -15,14 +15,16 @@ export class ReservationService {
   }
 
   getReservations(): Observable<Reservation[]> {
-    return this.reservationsCollection.snapshotChanges().pipe(
-      map((actions) =>
-        actions.map((a) => {
-          return a.payload.doc.data() as Reservation;
-        })
-      )
-    );
+    return this.reservationsCollection.valueChanges();
   }
+
+
+  deleteReservation(id: string) {
+    this.reservationsCollection.ref.where('id', '==', id).get().then(querySnapshot => {
+      return this.reservationsCollection.doc(querySnapshot.docs[0].id).delete();
+    });
+  }
+
 
   deleteOneReservation(tripId: string) {
     this.reservationsCollection.ref.where('tripId', '==', tripId).get().then(querySnapshot => {

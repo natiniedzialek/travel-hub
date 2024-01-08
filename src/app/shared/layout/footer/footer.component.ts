@@ -31,28 +31,26 @@ export class FooterComponent {
         this.currencyService.currencyChange$.subscribe(newCurrency => {
             this.currencyCode = newCurrency
         });
-        this.getCartCount();
+
         this.trips$.subscribe((trips: Trip[]) => {
             this.trips = trips;
         });
 
         this.reservations$.subscribe((reservations: Reservation[]) => {
-            this.reservations = reservations;
-            this.total = this.getTotal();
+          this.reservations = reservations;
+          this.total = this.getTotal();
+          this.cartCount = this.getCartCount();
         });
-
-        zip(this.trips$, this.reservations$).subscribe(
-            ([trips, reservations]) => {
-                this.trips = trips;
-                this.reservations = reservations;
-                this.total = this.getTotal();
-            });
     }
 
-    private getCartCount(): void {
-        this.reservationService.getReservations().subscribe((reservations: Reservation[]) => {
-            this.cartCount = reservations.reduce((acc, reservation) => acc + reservation.count, 0);
-        });
+    private getCartCount(): number {
+        if(this.reservations) {
+            return this.reservations
+                .reduce((total: number, reservation: Reservation) => {
+                    return total + reservation.count;
+                }, 0);
+        }
+        return 0;
     }
 
     private getTotal(): number {

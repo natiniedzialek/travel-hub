@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Trip } from '../models/trip';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs/operators';
+import {Reservation} from "../models/reservation";
 
 @Injectable({
   providedIn: 'root'
@@ -23,15 +24,17 @@ export class TripService {
     });
   }
 
+  updatePlacesLeft(tripId: string, placesSold: number): void {
+    this.tripsCollection.ref.where('id', '==', tripId).get().then(querySnapshot => {
+      const trip = querySnapshot.docs[0].data() as Trip;
+      return this.tripsCollection.doc(querySnapshot.docs[0].id).update({
+        placesLeft: trip.placesLeft - placesSold
+      });
+    });
+  }
+
   getTrips(): Observable<Trip[]> {
-    return this.tripsCollection.snapshotChanges().pipe(
-      map((actions) =>
-        actions.map((a) => {
-          const data = a.payload.doc.data() as Trip;
-          return data;
-        })
-      )
-    );
+    return this.tripsCollection.valueChanges();
   }
 
   deleteTrip(tripId: string) {

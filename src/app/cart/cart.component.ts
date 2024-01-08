@@ -20,6 +20,7 @@ export class CartComponent {
   trips$: Observable<Trip[]> = this.tripService.getTrips();
   trips: Trip[];
   total: number;
+  userId: string = "1";
 
   constructor(
     private tripService: TripService,
@@ -41,13 +42,6 @@ export class CartComponent {
       this.reservations = reservations;
       this.total = this.getTotal();
     });
-
-    zip(this.trips$, this.reservations$).subscribe(
-        ([trips, reservations]) => {
-          this.trips = trips;
-          this.reservations = reservations;
-          this.total = this.getTotal();
-        });
   }
 
   private getTotal(): number {
@@ -69,8 +63,12 @@ export class CartComponent {
   }
 
   handleOrderClick(): void {
-    console.log("Order clicked!")
-    // this.orderService.addOrder(new Order());
+    this.orderService.placeOrder(
+        this.reservations.filter((reservation: Reservation) =>
+            reservation.selected
+        )
+    );
+    this.getTotal();
   }
 
   getReservationCount(tripId: string): number {
