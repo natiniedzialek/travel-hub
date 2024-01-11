@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared/shared.module';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,10 @@ import { RouterModule } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { CoreModule } from './core/core.module';
 import { AddTripModalComponent } from './add-trip-modal/add-trip-modal.component';
+import { HistoryComponent } from './history/history.component';
+import { AboutComponent } from './about/about.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { TripComponent } from './trip/trip.component';
 
 
 @NgModule({
@@ -27,7 +32,10 @@ import { AddTripModalComponent } from './add-trip-modal/add-trip-modal.component
     HomeComponent,
     FilterModalComponent,
     CartComponent,
-    AddTripModalComponent
+    AddTripModalComponent,
+    HistoryComponent,
+    AboutComponent,
+    TripComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +52,9 @@ import { AddTripModalComponent } from './add-trip-modal/add-trip-modal.component
     MatNativeDateModule,
     MatOptionModule,
     MatSelectModule,
-    RouterModule
+    RouterModule,
+    CarouselModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

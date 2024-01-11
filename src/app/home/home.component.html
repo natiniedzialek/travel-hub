@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row d-flex">
-        <div class="col-md-4" *ngFor="let trip of trips | tripFilter: appliedFilter">
+        <div class="col-md-4" *ngFor="let trip of trips | tripFilter: appliedFilter | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
             <div class="card-container">
                 <div class="card" [ngStyle]="{
                     'border-color': trip.unitPrice === maxPrice ? '#D65C5C' : (trip.unitPrice === minPrice ? '#ABD194' : 'transparent')
@@ -12,7 +12,7 @@
                             </button>
                         </div>
                         <div id="img-container">
-                            <img class="card-img-top" [src]="trip.image" alt="{{ trip.name }} Image">
+                            <img class="card-img-top" [routerLink]="'/trip/' + trip.id" style="cursor:pointer" [src]="trip.image" alt="{{ trip.name }} Image">
                         </div>
                         <h5 class="card-title">{{ trip.name }}</h5>
                         <p class="card-text">{{ trip.description }}</p>
@@ -53,4 +53,19 @@
             </div>
         </div>
     </div>
+    <div class="pagination-container">
+        <div class="items-per-page-container">
+            <label for="itemsPerPage">Items Per Page:</label>
+            <select id="itemsPerPage" [(ngModel)]="itemsPerPage">
+                <option value="9">9</option>
+                <option value="12">12</option>
+                <option value="15">15</option>
+            </select>
+        </div>
+        <div class="pagination-controls">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
 </div>
+
+<app-footer></app-footer>

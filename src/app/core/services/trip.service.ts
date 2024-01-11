@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { Trip } from '../models/trip';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs/operators';
-import {Reservation} from "../models/reservation";
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +34,13 @@ export class TripService {
 
   getTrips(): Observable<Trip[]> {
     return this.tripsCollection.valueChanges();
+  }
+
+  getTrip(tripId: string): Observable<Trip> {
+    const query = this.tripsCollection.ref.where('id', '==', tripId);
+    return this.firestore.collection<Trip>('trips', (ref) => query).valueChanges().pipe(
+      map((trips: Trip[]) => trips[0])
+    );
   }
 
   deleteTrip(tripId: string) {

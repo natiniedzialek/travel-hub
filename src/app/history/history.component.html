@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <h1 class="display-4 text-center mb-4">Order History</h1>
+      <div class="form-group text-center">
+        <label>Status:</label>
+        <div class="form-check form-check-inline mx-2">
+          <input class="form-check-input" type="checkbox" id="archiveCheckbox" [checked]="filterArchive" (change)="filterArchiveChange()">
+          <label class="form-check-label" for="archiveCheckbox">Archive</label>
+        </div>
+        <div class="form-check form-check-inline mx-2">
+          <input class="form-check-input" type="checkbox" id="ongoingCheckbox" [checked]="filterOngoing" (change)="filterOngoingChange()">
+          <label class="form-check-label" for="ongoingCheckbox">Ongoing</label>
+        </div>
+        <div class="form-check form-check-inline mx-2">
+          <input class="form-check-input" type="checkbox" id="upcomingCheckbox" [checked]="filterUpcoming" (change)="filterUpcomingChange()">
+          <label class="form-check-label" for="upcomingCheckbox">Upcoming</label>
+        </div>
+      </div>
+      <div *ngIf="orders && orders.length > 0; else emptyHistoryMessage">
+        <div class="card-deck">
+          <ng-container *ngFor="let trip of filteredTrips">
+            <div *ngIf="getOrderCount(trip.id) > 0" class="card shadow mb-5 text-center">
+              <div class="card-body">
+                <h5 class="card-title">{{ trip.name }}</h5>
+                <h6 class="card-text"><strong>Status: {{ getTripStatus(trip.startDate, trip.endDate)}} </strong></h6>
+                <p class="card-text">{{ trip.startDate | date: 'dd/MM/yyyy' }}
+                  - {{ trip.endDate | date: 'dd/MM/yyyy'}}</p>
+                <p class="card-text">
+                  <strong>Tickets count:</strong> {{ getOrderCount(trip.id) }}</p>
+                <p class="card-text">
+                  <strong>Price:</strong> {{ trip.unitPrice | currencyFormat: currencyCode }}</p>
+                <p class="card-text">
+                  <strong>Total:</strong> {{ getOrderCount(trip.id) * trip.unitPrice | currencyFormat: currencyCode }}
+                </p>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <ng-template #emptyHistoryMessage>
+        <p class="text-center"><strong>Order history is empty!</strong></p>
+      </ng-template>
+    </div>
+  </div>
+</div>

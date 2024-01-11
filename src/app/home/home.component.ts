@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
   maxPrice: number;
   minPrice: number;
   appliedFilter!: Filter;
+  p: number = 1;
+  itemsPerPage: number = 9;
 
   constructor(
     private tripService: TripService,
@@ -41,12 +43,12 @@ export class HomeComponent implements OnInit {
       this.trips = trips;
     });
     this.trips$.pipe(
-      map((trips) => trips.map((trip) => trip.unitPrice)),
-      map((prices) => prices.length > 0 ? Math.max(...prices) : 0)
+        map((trips) => trips.map((trip) => trip.unitPrice)),
+        map((prices) => prices.length > 0 ? Math.max(...prices) : 0)
     )
-      .subscribe((maxPrice) => {
-        this.maxPrice = maxPrice;
-      });
+        .subscribe((maxPrice) => {
+          this.maxPrice = maxPrice;
+        });
     this.trips$.pipe(
       map((trips) => trips.map((trip) => trip.unitPrice)),
       map((prices) => prices.length > 0 ? Math.min(...prices) : 0)

@@ -13,11 +13,12 @@
                                            (change)="toggleSelection(trip.id)">
                                 </div>
                                 <h5 class="card-title">{{ trip.name }}</h5>
+                              <p class="card-text">{{ trip.startDate | date: 'dd/MM/yyyy' }} - {{ trip.endDate | date: 'dd/MM/yyyy'}}</p>
                                 <div class="d-flex justify-content-center align-items-center mb-3">
                               <span class="card-text mx-2">
-                                <strong>Quantity:</strong>
+                                <strong>Count:</strong>
                               </span>
-                                    <button class="btn btn-outline-primary" style="width:35px; height:35px;"
+                                  <button class="btn btn-outline-primary" style="width:35px; height:35px;"
                                             [disabled]="getReservationCount(trip.id) >= trip.placesLeft"
                                             (click)="handlePlusClick(trip.id)">
                                         +

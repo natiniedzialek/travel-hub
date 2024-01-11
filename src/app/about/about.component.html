@@ -1,0 +1,61 @@
+<!-- about.component.html -->
+<div class="container-fluid p-0">
+    <carousel [interval]="4000">
+        <slide *ngFor="let image of carouselImages">
+            <img [src]="image" class="img-fluid" alt="Travel Image">
+            <div class="carousel-caption d-none d-md-block">
+                <h1 class="display-4">Discover TravelHub</h1>
+                <p class="lead">
+                    Welcome to TravelHub, your ultimate travel companion! We specialize in creating memorable travel
+                    experiences tailored to your needs.
+                </p>
+            </div>
+        </slide>
+    </carousel>
+
+    <div class="all-the-text">
+        <div class="container animated">
+            <section>
+                <h2>Welcome to TravelHub</h2>
+                <p>
+                    At TravelHub, we are dedicated to making your travel experience extraordinary. Our passionate
+                    team of travel experts is committed to providing you with exceptional service, ensuring your
+                    journey is seamless and unforgettable.
+                </p>
+            </section>
+        </div>
+
+        <div class="container animated">
+            <section>
+                <h2>Customers opinions</h2>
+                <div class="testimonial">
+                    <p>"TravelHub made our dream vacation a reality. Their attention to detail and personalized
+                        service were exceptional."</p>
+                </div>
+                <div class="testimonial">
+                    <p>"I highly recommend TravelHub for anyone looking to plan a memorable and stress-free
+                        trip."</p>
+                </div>
+            </section>
+        </div>
+
+
+        <div class="container animated contact-container">
+            <h2 class="text-center" style="color:white;">Contact Us</h2>
+            <div class="row">
+                <div class="col-sm">
+                    <h4 class="text-center">Visit Our Office</h4>
+                    <ul>
+                        <li class="text-center"><strong>Address:</strong> al. Adama Mickiewicza 30</li>
+                        <li class="text-center"><strong>Phone:</strong> +1 123-456-7890</li>
+                        <li class="text-center"><strong>Email:</strong> travelhub&#64;gmail.com</li>
+                    </ul>
+                </div>
+                <div class="col-sm">
+                    <h4 class="text-center">Location</h4>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4792.539860255985!2d19.92084937203666!3d50.06532884139043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165ba756b59b21%3A0xb20c8dba21b317d1!2sAkademia%20G%C3%B3rniczo-Hutnicza%20im.%20Stanis%C5%82awa%20Staszica%20w%20Krakowie!5e0!3m2!1spl!2spl!4v1704831196626!5m2!1spl!2spl" width="350" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
