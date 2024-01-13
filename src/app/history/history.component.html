@@ -2,19 +2,17 @@
   <div class="row">
     <div class="col-lg-8 mx-auto">
       <h1 class="display-4 text-center mb-4">Order History</h1>
-      <div class="form-group text-center">
-        <label>Status:</label>
-        <div class="form-check form-check-inline mx-2">
-          <input class="form-check-input" type="checkbox" id="archiveCheckbox" [checked]="filterArchive" (change)="filterArchiveChange()">
-          <label class="form-check-label" for="archiveCheckbox">Archive</label>
-        </div>
-        <div class="form-check form-check-inline mx-2">
-          <input class="form-check-input" type="checkbox" id="ongoingCheckbox" [checked]="filterOngoing" (change)="filterOngoingChange()">
-          <label class="form-check-label" for="ongoingCheckbox">Ongoing</label>
-        </div>
-        <div class="form-check form-check-inline mx-2">
-          <input class="form-check-input" type="checkbox" id="upcomingCheckbox" [checked]="filterUpcoming" (change)="filterUpcomingChange()">
-          <label class="form-check-label" for="upcomingCheckbox">Upcoming</label>
+      <div class="form-group text-center py-4">
+        <div class="button-checkbox-group">
+          <button class="btn btn-outline-secondary" [class.active]="filterArchive" (click)="filterArchiveChange()">
+            Archive
+          </button>
+          <button class="btn btn-outline-secondary" [class.active]="filterOngoing" (click)="filterOngoingChange()">
+            Ongoing
+          </button>
+          <button class="btn btn-outline-secondary" [class.active]="filterUpcoming" (click)="filterUpcomingChange()">
+            Upcoming
+          </button>
         </div>
       </div>
       <div *ngIf="orders && orders.length > 0; else emptyHistoryMessage">

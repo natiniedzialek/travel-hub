@@ -1,1 +1,65 @@
-<p>trip works!</p>
+<div class="container" *ngIf="trip">
+<h1 class="text-center">Trip Details</h1>
+
+<!-- Carousel -->
+    <carousel [interval]="4000">
+        <slide *ngFor="let image of [trip.images]">
+            <div style="position:relative">
+            <img [src]="image" class="img-fluid" alt="Travel Image">
+            <div class="carousel-caption d-none d-md-block">
+                <p class="lead" style="font-size:30px; line-height:5px;">
+                    {{ trip.name }}
+                </p>
+            </div>
+            </div>
+        </slide>
+    </carousel>
+
+<!-- Trip Details -->
+    <div class="description">
+        <div class="text-container">
+            <h2>Destination: {{ trip.destination }}</h2>
+            <p>{{ trip.description }}</p>
+            <p><strong>Price:</strong> {{ trip.unitPrice | currencyFormat: currencyCode }}</p>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52891323.64355656!2d-161.7572472789203!3d35.990241455780485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1spl!2spl!4v1705010967476!5m2!1spl!2spl" width="500" height="300" style="border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+<!-- Review Form -->
+<form>
+    <h3>Leave a Review</h3>
+    <div class="form-group">
+        <label for="nick">Your NICK:</label>
+        <input type="text" class="form-control" id="nick" required>
+    </div>
+    <div class="form-group">
+        <label for="reviewTitle">Review Title:</label>
+        <input type="text" class="form-control" id="reviewTitle" required>
+    </div>
+    <div class="form-group">
+        <label for="reviewContent">Review:</label>
+        <textarea class="form-control" id="reviewContent" rows="4" required minlength="50" maxlength="500"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="purchaseDate">Purchase Date (optional):</label>
+        <input type="date" class="form-control" id="purchaseDate">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Review</button>
+</form>
+
+<!-- Reviews Container -->
+<div class="reviews-container">
+    <h3>Reviews</h3>
+    <!-- Sample review, replace with dynamic content from your application -->
+    <div class="review">
+        <h4>NICK - Great Trip!</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in leo ac justo rhoncus
+            facilisis.</p>
+        <p>Purchase Date: 2022-01-01</p>
+    </div>
+    <!-- Add more reviews dynamically here -->
+</div>
+</div>
+<div class="footer"></div>

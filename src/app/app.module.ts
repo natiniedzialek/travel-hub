@@ -24,6 +24,9 @@ import { HistoryComponent } from './history/history.component';
 import { AboutComponent } from './about/about.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TripComponent } from './trip/trip.component';
+import {MatChipsModule} from "@angular/material/chips";
+import {MatIconModule} from "@angular/material/icon";
+import {MatDialogContent} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -37,25 +40,28 @@ import { TripComponent } from './trip/trip.component';
     AboutComponent,
     TripComponent
   ],
-  imports: [
-    BrowserModule,
-    SharedModule,
-    CoreModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
-    FormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatOptionModule,
-    MatSelectModule,
-    RouterModule,
-    CarouselModule,
-    NgxPaginationModule
-  ],
+    imports: [
+        BrowserModule,
+        SharedModule,
+        CoreModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatInputModule,
+        FormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatOptionModule,
+        MatSelectModule,
+        RouterModule,
+        CarouselModule,
+        NgxPaginationModule,
+        MatChipsModule,
+        MatIconModule,
+        MatDialogContent
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

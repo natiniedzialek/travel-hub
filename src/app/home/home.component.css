@@ -3,19 +3,14 @@
 }
 
 .card-container {
-    height: 96%;
-}
-
-.card {
     height: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
     border: 3px solid;
     border-radius: 10px;
-    position: relative;
 }
 
-.card:hover {
+.card-container:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2);
 }
@@ -32,18 +27,18 @@
     border-radius: 10px;
 }
 
-.card-img-top {
-    height: 100%;
-    object-fit: cover;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#img-container {
-    aspect-ratio: 1;
+.card-img-top  {
+    aspect-ratio: 1/1;
     overflow: hidden;
     border-radius: 50%;
     margin-bottom: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    cursor:pointer;
+}
+
+.col-md-4 {
+    margin-bottom: 30px;
 }
 
 .card-title {

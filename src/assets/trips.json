@@ -182,6 +182,7 @@
     "description": "Dive into the mesmerizing world of the Great Barrier Reef, a UNESCO World Heritage site.",
     "image": "https://media.istockphoto.com/id/613678930/pl/zdj%C4%99cie/tropikalna-ryba-na-rafa-koralowa.jpg?s=612x612&w=0&k=20&c=9KL_M2MDrdeeGvxpByL2VAPI7vHC8xLLvk4-Y9jRvwk="
   },
+  # !!!!!!!!!!!!!!
   {
     "name": "Cultural Delights in Istanbul",
     "destination": "Turkey",
@@ -192,6 +193,16 @@
     "description": "Immerse yourself in the rich cultural heritage of Istanbul, where East meets West.",
     "image": "https://cdn.pixabay.com/photo/2018/12/31/18/27/mosque-3905675_640.jpg"
   },
+  # !!!!!!!!!!!!!!!!!!!!!
+  {
+    "name": "Exploration of the Galapagos Islands",
+    "destination": "Ecuador",
+    "startDate": "2024-10-15",
+    "endDate": "2024-10-25",
+    "unitPrice": 4500,
+    "placesLeft": 12,
+    "description": "Discover the unique wildlife of the Galapagos Islands, a UNESCO World Heritage site.",
+    "image": "https://media.istockphot
   {
     "name": "Inca Trail to Rainbow Mountain",
     "destination": "Peru",

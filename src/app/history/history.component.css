@@ -1,0 +1,18 @@
+.button-checkbox-group {
+    display: flex;
+    justify-content: center;
+}
+
+.button-checkbox-group button {
+    margin: 0 5px;
+}
+
+.button-checkbox-group .btn {
+    position: relative;
+}
+
+.button-checkbox-group .btn input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+}

@@ -1,5 +1,6 @@
 .container-fluid {
   margin-top:-50px;
+  margin-bottom:30px;
 }
 
 .img-fluid {
@@ -22,7 +23,7 @@
 }
 
 h2 {
-  color: #333333;
+  color: #212529;
 }
 
 p {
@@ -95,7 +96,7 @@ section {
 }
 
 h2 {
-  color: #333333;
+  color: #212529;
 }
 
 p {
@@ -147,7 +148,7 @@ li {
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 8px;
-  background-color: #333333;
+  background-color: #212529;
   color: white;
 }
 
@@ -156,8 +157,12 @@ li {
 }
 
 .contact-container {
-  background-color: #333333; /* Dark color for the Contact Us card */
+  background-color: #212529; /* Dark color for the Contact Us card */
   color: #ffffff; /* White text color */
   max-width: 50%; /* Adjust the max-width as needed */
   margin: 20px;
+}
+
+.footer {
+  height:10px;
 }
