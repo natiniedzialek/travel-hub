@@ -1,9 +1,14 @@
+<button class="left-arrow-button" [routerLink]="'/trips'">
+    <i class="bi bi-arrow-left-circle-fill"></i>
+</button>
+
 <div class="container" *ngIf="trip">
+
 <h1 class="text-center">Trip Details</h1>
 
 <!-- Carousel -->
     <carousel [interval]="4000">
-        <slide *ngFor="let image of [trip.images]">
+        <slide *ngFor="let image of carouselImages">
             <div style="position:relative">
             <img [src]="image" class="img-fluid" alt="Travel Image">
             <div class="carousel-caption d-none d-md-block">
@@ -21,9 +26,35 @@
             <h2>Destination: {{ trip.destination }}</h2>
             <p>{{ trip.description }}</p>
             <p><strong>Price:</strong> {{ trip.unitPrice | currencyFormat: currencyCode }}</p>
+            <p class="card-text" [ngStyle]="{
+                            color: trip.placesLeft > 3 && trip.placesLeft != 0 ? '' : '#FF0000',
+                            }"><strong [ngStyle]="{
+                                color: trip.placesLeft > 3 && trip.placesLeft != 0 ? '' : '#FF0000',
+                                }">Places left:</strong> {{ trip.placesLeft }}</p>
+            <div class="card-buttons">
+                <button class="btn btn-dark" (click)="handlePlusClick(trip.id)"
+                        [ngStyle]="{
+                                    'opacity': getReservationCount(trip.id) >= trip.placesLeft ? '0' : ''
+                                }"
+                        [disabled]="getReservationCount(trip.id) >= trip.placesLeft">+
+                </button>
+                <span class="reservationCount">
+                                <ng-container *ngIf="trip.placesLeft === 0; else reservationsCount">
+                                </ng-container>
+                                <ng-template #reservationsCount>
+                                    {{ getReservationCount(trip.id) }}
+                                </ng-template>
+                            </span>
+                <button class="btn btn-dark" (click)="handleMinusClick(trip.id)"
+                        [ngStyle]="{
+                                    'opacity': getReservationCount(trip.id) === 0 ? '0' : ''
+                                }"
+                        [disabled]="getReservationCount(trip.id) === 0">-
+                </button>
+            </div>
         </div>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52891323.64355656!2d-161.7572472789203!3d35.990241455780485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1spl!2spl!4v1705010967476!5m2!1spl!2spl" width="500" height="300" style="border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-container" *ngIf="trip.mapSrc">
+            <iframe [src]="trip.mapSrc | safe" width="500" height="300" style="border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 
@@ -62,4 +93,5 @@
     <!-- Add more reviews dynamically here -->
 </div>
 </div>
+<app-footer></app-footer>
 <div class="footer"></div>

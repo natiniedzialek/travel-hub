@@ -19,6 +19,7 @@ export class AddTripModalComponent {
   placesLeft!: number;
   description!: string;
   images: string[] = [];
+  mapSrc!: string;
   minDate: Date;
   separatorKeysCodes = [ENTER, COMMA] as const;
 
@@ -35,7 +36,7 @@ export class AddTripModalComponent {
   }
 
   saveTrip(): void {
-    this.tripService.addTrip(new Trip(this.name, this.destination, this.startDate, this.endDate, this.unitPrice, this.placesLeft, this.description, this.images))
+    this.tripService.addTrip(new Trip(this.name, this.destination, this.startDate, this.endDate, this.unitPrice, this.placesLeft, this.description, this.images, this.mapSrc))
       .then(() => {
         console.log('Trip added successfully');
       });

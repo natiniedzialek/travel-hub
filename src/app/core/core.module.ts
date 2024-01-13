@@ -5,13 +5,17 @@ import { TripFilterPipe } from './pipes/trip-filter.pipe';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../../environments/environment';
+import { SafePipe } from './pipes/safe.pipe';
+import { UppercasePipe } from './pipes/uppercase.pipe';
 
 
 // add services like data fetching, authentication etc - singletons
 @NgModule({
   declarations: [
     CurrencyFormatPipe,
-    TripFilterPipe
+    TripFilterPipe,
+    SafePipe,
+    UppercasePipe
   ],
   imports: [
     CommonModule,
@@ -20,7 +24,8 @@ import { environment } from '../../environments/environment';
   ],
   exports: [
     CurrencyFormatPipe,
-    TripFilterPipe
+    TripFilterPipe,
+    SafePipe
   ]
 })
 export class CoreModule { }

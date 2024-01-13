@@ -125,3 +125,28 @@ form {
 .footer {
     height:20px;
 }
+
+.reservationCount {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+button {
+    font-family: 'IBM Plex Mono', monospace;
+    border-radius: 50%;
+}
+
+.left-arrow-button {
+    position: fixed;
+    margin-top: -20px;
+    height:60px;
+    width:60px;
+    left: 20px;
+    background-color: #fff;
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 5;
+    font-size: 40px;
+}

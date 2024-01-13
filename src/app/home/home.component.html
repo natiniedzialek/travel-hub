@@ -12,9 +12,9 @@
                         </button>
                         <img class="card-img-top" [routerLink]="'/trip/' + trip.id" [src]="trip.images[0]"
                              alt="{{ trip.name }} Image">
-                        <h5 class="card-title">{{ trip.name }}</h5>
+                        <h5 class="card-title">{{ trip.name | uppercase }}</h5>
                         <p class="card-text">{{ trip.description }}</p>
-                        <p class="card-text"><strong>Destination:</strong> {{ trip.destination.toUpperCase() }}</p>
+                        <p class="card-text"><strong>Destination:</strong> {{ trip.destination | uppercase }}</p>
                         <p class="card-text"><strong>Start Date:</strong> {{ trip.startDate | date: 'dd/MM/yyyy' }}</p>
                         <p class="card-text"><strong>End Date:</strong> {{ trip.endDate | date: 'dd/MM/yyyy' }}</p>
                         <p class="card-text"><strong>Price:</strong> {{ trip.unitPrice |

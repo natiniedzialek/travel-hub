@@ -8,6 +8,7 @@ export class Trip {
     public placesLeft: number;
     public description: string;
     public images: string[];
+    public mapSrc: string;
 
     constructor(
         name: string = '',
@@ -17,7 +18,8 @@ export class Trip {
         unitPrice: number = 0,
         placesLeft: number = 0,
         description: string = '',
-        images: string[] = []
+        images: string[] = [],
+        mapSrc: string = ''
     ) {
         this.name = name;
         this.destination = destination;
@@ -27,5 +29,6 @@ export class Trip {
         this.placesLeft = placesLeft;
         this.description = description;
         this.images = images;
+        this.mapSrc = mapSrc;
     }
 }
