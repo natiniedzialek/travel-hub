@@ -27,6 +27,8 @@ import { TripComponent } from './trip/trip.component';
 import { MatChipsModule } from "@angular/material/chips";
 import { MatIconModule } from "@angular/material/icon";
 import { MatDialogContent } from "@angular/material/dialog";
+import { ReviewComponent } from './review/review.component';
+import {MatSliderModule} from "@angular/material/slider";
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { MatDialogContent } from "@angular/material/dialog";
     AddTripModalComponent,
     HistoryComponent,
     AboutComponent,
-    TripComponent
+    TripComponent,
+    ReviewComponent
   ],
     imports: [
         BrowserModule,
@@ -60,7 +63,8 @@ import { MatDialogContent } from "@angular/material/dialog";
         NgxPaginationModule,
         MatChipsModule,
         MatIconModule,
-        MatDialogContent
+        MatDialogContent,
+        MatSliderModule
     ],
   providers: [],
   bootstrap: [AppComponent]

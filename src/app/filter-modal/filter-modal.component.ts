@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { TripService } from '../core/services/trip.service';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { FilterService } from '../core/services/filter.service';
 import { Filter } from '../core/models/filter';
@@ -14,6 +13,7 @@ import { CurrencyService } from '../core/services/currency.service';
 })
 export class FilterModalComponent {
   filterDestination?: string[];
+  filterMinRating?: number;
   filterMinPrice?: number;
   filterMaxPrice?: number;
   filterStartDate?: Date;
@@ -21,6 +21,7 @@ export class FilterModalComponent {
 
   destinations: any;
   availablePrices: any;
+  availableStars = [1, 2, 3, 4, 5];
   minDate: Date = new Date();
 
   currencyCode: string = this.currencyService.getCurrency();

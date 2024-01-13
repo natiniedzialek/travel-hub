@@ -1,0 +1,61 @@
+<!-- Review Form -->
+<form #reviewForm="ngForm">
+    <h3>Leave a Review</h3>
+        <div class="star-rating">
+            <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+                <li style="cursor:pointer" (click)="rate(star)"
+                    [ngClass]="{'selected': star <= rating, 'not-selected': rating < star}">
+                    <i class="bi bi-star-fill"></i>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Your nick</mat-label>
+                <input matInput [(ngModel)]="nick" name="nick">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput [(ngModel)]="title" name="title">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Review</mat-label>
+                <textarea matInput rows="4" [(ngModel)]="content" name="content"
+                ></textarea>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="custom-form-field">
+                <mat-label>Purchase Date</mat-label>
+                <input matInput [matDatepicker]="datePicker"
+                       [(ngModel)]="purchaseDate" name="purchaseDate">
+                <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="addReview()">Submit Review</button>
+</form>
+
+<!-- Reviews Container -->
+<div class="reviews-container">
+    <h3>Reviews</h3>
+  <div *ngIf="reviews && reviews.length > 0" class="star-rating">
+  <i class="bi bi-star-fill" *ngFor="let star of starsForRating"></i>
+  <i class="bi bi-star-half" *ngIf="countRating() % 1 !== 0"></i>
+    {{ countRating() | number: '1.2-2' }} ({{ reviews.length }} reviews)
+</div>
+  <div class="review-list" *ngFor="let review of reviews">
+    <div class="review">
+        <div *ngFor="let star of stars" style="display: inline-block">
+            <i class="bi bi-star-fill" *ngIf="star <= review.rating"></i>
+        </div>
+        <h4>{{ review.nick | uppercase }} - {{ review.title }}</h4>
+        <p>{{ review.content }}</p>
+        <p *ngIf="review.purchaseDate">Purchase Date: {{ review.purchaseDate | date: 'dd/MM/yyyy' }}</p>
+    </div>
+  </div>
+</div>

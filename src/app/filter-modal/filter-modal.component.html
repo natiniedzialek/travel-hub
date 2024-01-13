@@ -12,6 +12,15 @@
     </mat-form-field>
 
     <mat-form-field>
+      <mat-label>Minimum Rating</mat-label>
+      <mat-select placeholder="Select minimum rating" [(ngModel)]="filterMinRating" name="minRating">
+        <mat-option *ngFor="let star of availableStars" [value]="star">
+          {{ star }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
       <mat-label>Minimum Price</mat-label>
       <mat-select placeholder="Select minimum price" [(ngModel)]="filterMinPrice" name="minPrice">
         <mat-option *ngFor="let price of availablePrices" [value]="price">

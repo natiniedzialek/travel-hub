@@ -57,41 +57,7 @@
             <iframe [src]="trip.mapSrc | safe" width="500" height="300" style="border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-
-<!-- Review Form -->
-<form>
-    <h3>Leave a Review</h3>
-    <div class="form-group">
-        <label for="nick">Your NICK:</label>
-        <input type="text" class="form-control" id="nick" required>
-    </div>
-    <div class="form-group">
-        <label for="reviewTitle">Review Title:</label>
-        <input type="text" class="form-control" id="reviewTitle" required>
-    </div>
-    <div class="form-group">
-        <label for="reviewContent">Review:</label>
-        <textarea class="form-control" id="reviewContent" rows="4" required minlength="50" maxlength="500"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="purchaseDate">Purchase Date (optional):</label>
-        <input type="date" class="form-control" id="purchaseDate">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit Review</button>
-</form>
-
-<!-- Reviews Container -->
-<div class="reviews-container">
-    <h3>Reviews</h3>
-    <!-- Sample review, replace with dynamic content from your application -->
-    <div class="review">
-        <h4>NICK - Great Trip!</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in leo ac justo rhoncus
-            facilisis.</p>
-        <p>Purchase Date: 2022-01-01</p>
-    </div>
-    <!-- Add more reviews dynamically here -->
-</div>
+    <app-review [tripId]="trip.id"></app-review>
 </div>
 <app-footer></app-footer>
 <div class="footer"></div>
