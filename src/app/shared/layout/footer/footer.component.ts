@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {CurrencyService} from '../../../core/services/currency.service';
-import {ReservationService} from '../../../core/services/reservation.service';
+import {FirestoreReservationService} from '../../../core/services/firestore/firestore-reservation.service';
 import {Reservation} from '../../../core/models/reservation';
-import {TripService} from "../../../core/services/trip.service";
+import {FirestoreTripService} from "../../../core/services/firestore/firestore-trip.service";
 import {Trip} from "../../../core/models/trip";
-import {Observable, zip} from "rxjs";
+import {Observable} from "rxjs";
 
 @Component({
     selector: 'app-footer', templateUrl: './footer.component.html', styleUrl: './footer.component.css'
@@ -21,8 +21,8 @@ export class FooterComponent {
     total: number;
 
     constructor(
-        private tripService: TripService,
-        private reservationService: ReservationService,
+        private tripService: FirestoreTripService,
+        private reservationService: FirestoreReservationService,
         private router: Router,
         private currencyService: CurrencyService) {
     }

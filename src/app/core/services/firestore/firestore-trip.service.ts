@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Trip } from '../models/trip';
+import { Trip } from '../../models/trip';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TripService {
+export class FirestoreTripService {
   private tripsCollection: AngularFirestoreCollection<Trip>;
 
   constructor(private firestore: AngularFirestore) {

@@ -1,16 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Trip } from '../models/trip';
 import { Filter } from '../models/filter';
-import {ReviewService} from "../services/review.service";
-import {Review} from "../models/review";
-import {defaultIfEmpty, every, lastValueFrom} from "rxjs";
-import {map} from "rxjs/operators";
+import { Review } from "../models/review";
+import { lastValueFrom } from "rxjs";
+import {FirestoreReviewService} from "../services/firestore/firestore-review.service";
 
 @Pipe({
   name: 'tripFilter',
 })
 export class TripFilterPipe implements PipeTransform {
-  constructor(private reviewService: ReviewService) { }
+  constructor(private reviewService: FirestoreReviewService) { }
 
   transform(trips: Trip[], filters: Filter): Trip[] {
     if (!trips || !filters) {
@@ -26,7 +25,7 @@ export class TripFilterPipe implements PipeTransform {
   }
 
   // TODO: Fix this
-  private async countMean(reviews: Review[]): Promise<number> {
+  private countMean(reviews: Review[]): number {
     if (reviews.length === 0) {
       return 0;
     }
@@ -46,7 +45,7 @@ export class TripFilterPipe implements PipeTransform {
         return false;
       }
 
-      const mean = await this.countMean(reviews);
+      const mean = this.countMean(reviews);
 
       return mean >= minRating;
     } catch (error) {

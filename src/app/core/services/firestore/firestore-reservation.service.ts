@@ -1,13 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Reservation} from '../models/reservation';
+import {Reservation} from '../../models/reservation';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
-import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ReservationService {
+export class FirestoreReservationService {
   private reservationsCollection: AngularFirestoreCollection<Reservation>;
 
   constructor(private firestore: AngularFirestore) {

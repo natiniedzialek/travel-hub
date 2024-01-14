@@ -1,8 +1,7 @@
 import {Component, Input, ViewChild} from '@angular/core';
-import {ReviewService} from "../core/services/review.service";
+import {FirestoreReviewService} from "../core/services/firestore/firestore-review.service";
 import {Review} from "../core/models/review";
 import {NgForm} from "@angular/forms";
-import {get} from "@angular/fire/database";
 
 @Component({
   selector: 'app-review', templateUrl: './review.component.html', styleUrl: './review.component.css'
@@ -21,7 +20,7 @@ export class ReviewComponent {
 
   reviews: Review[];
 
-  constructor(private reviewService: ReviewService) {
+  constructor(private reviewService: FirestoreReviewService) {
   }
 
   ngOnInit(): void {

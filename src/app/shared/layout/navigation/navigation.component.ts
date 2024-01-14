@@ -4,9 +4,9 @@ import { AddTripModalComponent } from '../../../add-trip-modal/add-trip-modal.co
 import { MatDialog } from '@angular/material/dialog';
 import { CurrencyService } from '../../../core/services/currency.service';
 import {Trip} from "../../../core/models/trip";
-import {OrderService} from "../../../core/services/order.service";
+import {FirestoreOrderService} from "../../../core/services/firestore/firestore-order.service";
 import {Order} from "../../../core/models/order";
-import {TripService} from "../../../core/services/trip.service";
+import {FirestoreTripService} from "../../../core/services/firestore/firestore-trip.service";
 import { Observable} from "rxjs";
 
 @Component({
@@ -26,8 +26,8 @@ export class NavigationComponent {
   constructor(
     private dialog: MatDialog,
     private currencyService: CurrencyService,
-    private orderService: OrderService,
-    private tripService: TripService
+    private orderService: FirestoreOrderService,
+    private tripService: FirestoreTripService
   ) {}
 
   ngOnInit(): void {

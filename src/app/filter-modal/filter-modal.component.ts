@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { TripService } from '../core/services/trip.service';
+import { FirestoreTripService } from '../core/services/firestore/firestore-trip.service';
 import { map } from 'rxjs/operators';
 import { FilterService } from '../core/services/filter.service';
 import { Filter } from '../core/models/filter';
@@ -27,7 +27,7 @@ export class FilterModalComponent {
   currencyCode: string = this.currencyService.getCurrency();
 
   constructor(private dialogRef: MatDialogRef<FilterModalComponent>,
-    private tripService: TripService,
+    private tripService: FirestoreTripService,
     private filterService: FilterService,
     private currencyService: CurrencyService
   ) { }

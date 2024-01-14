@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { TripService } from '../core/services/trip.service';
+import { FirestoreTripService } from '../core/services/firestore/firestore-trip.service';
 import { Trip } from '../core/models/trip';
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {MatChipInputEvent} from "@angular/material/chips";
@@ -25,7 +25,7 @@ export class AddTripModalComponent {
 
   constructor(
     private dialogRef: MatDialogRef<AddTripModalComponent>,
-    private tripService: TripService
+    private tripService: FirestoreTripService
   ) {
     let tomorrow = new Date();
     this.minDate = new Date(tomorrow.setDate(tomorrow.getDate() + 1));

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {TripService} from "../core/services/trip.service";
+import {FirestoreTripService} from "../core/services/firestore/firestore-trip.service";
 import { ActivatedRoute } from '@angular/router';
 import {Trip} from "../core/models/trip";
 import {CurrencyService} from "../core/services/currency.service";
-import {ReservationService} from "../core/services/reservation.service";
+import {FirestoreReservationService} from "../core/services/firestore/firestore-reservation.service";
 import {Reservation} from "../core/models/reservation";
 
 @Component({
@@ -20,9 +20,9 @@ export class TripComponent {
 
   constructor(
       private route: ActivatedRoute,
-      private tripService: TripService,
+      private tripService: FirestoreTripService,
       private currencyService: CurrencyService,
-      private reservationService: ReservationService
+      private reservationService: FirestoreReservationService
   ) { }
 
   ngOnInit(): void {

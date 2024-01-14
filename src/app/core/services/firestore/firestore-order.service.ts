@@ -1,19 +1,19 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Order} from '../models/order';
+import {Order} from '../../models/order';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
-import {TripService} from "./trip.service";
-import {ReservationService} from "./reservation.service";
-import {Reservation} from "../models/reservation";
+import {FirestoreTripService} from "./firestore-trip.service";
+import {FirestoreReservationService} from "./firestore-reservation.service";
+import {Reservation} from "../../models/reservation";
 
 @Injectable({
   providedIn: 'root'
 })
-export class OrderService {
+export class FirestoreOrderService {
   private ordersCollection: AngularFirestoreCollection<Order>;
   private userId: string = "1";
 
-  constructor(private firestore: AngularFirestore, private tripService: TripService, private reservationService: ReservationService) {
+  constructor(private firestore: AngularFirestore, private tripService: FirestoreTripService, private reservationService: FirestoreReservationService) {
     this.ordersCollection = this.firestore.collection<Order>('orders');
   }
 

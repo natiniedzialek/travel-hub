@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import {ReservationService} from "../core/services/reservation.service";
+import {FirestoreReservationService} from "../core/services/firestore/firestore-reservation.service";
 import {Reservation} from "../core/models/reservation";
-import {OrderService} from "../core/services/order.service";
-import {TripService} from "../core/services/trip.service";
+import {FirestoreOrderService} from "../core/services/firestore/firestore-order.service";
+import {FirestoreTripService} from "../core/services/firestore/firestore-trip.service";
 import {CurrencyService} from "../core/services/currency.service";
 import {Trip} from "../core/models/trip";
-import {map} from "rxjs/operators";
-import {combineLatest, Observable, zip} from "rxjs";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-cart',
@@ -23,9 +22,9 @@ export class CartComponent {
   userId: string = "1";
 
   constructor(
-    private tripService: TripService,
-    private reservationService: ReservationService,
-    private orderService: OrderService,
+    private tripService: FirestoreTripService,
+    private reservationService: FirestoreReservationService,
+    private orderService: FirestoreOrderService,
     private currencyService: CurrencyService
   ) { }
 

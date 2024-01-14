@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { TripService } from '../core/services/trip.service';
+import { FirestoreTripService } from '../core/services/firestore/firestore-trip.service';
 import { Trip } from '../core/models/trip';
 import { CurrencyService } from '../core/services/currency.service';
 import { FilterService } from '../core/services/filter.service';
 import { Filter } from '../core/models/filter';
 import { map } from 'rxjs';
-import { ReservationService } from '../core/services/reservation.service';
+import { FirestoreReservationService } from '../core/services/firestore/firestore-reservation.service';
 import { Reservation } from '../core/models/reservation';
 
 @Component({
@@ -25,8 +25,8 @@ export class HomeComponent implements OnInit {
   itemsPerPage: number = 9;
 
   constructor(
-    private tripService: TripService,
-    private reservationService: ReservationService,
+    private tripService: FirestoreTripService,
+    private reservationService: FirestoreReservationService,
     private currencyService: CurrencyService,
     private filterService: FilterService
   ) { }

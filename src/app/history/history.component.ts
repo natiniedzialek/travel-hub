@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
-import {TripService} from "../core/services/trip.service";
-import {OrderService} from "../core/services/order.service";
+import {FirestoreTripService} from "../core/services/firestore/firestore-trip.service";
+import {FirestoreOrderService} from "../core/services/firestore/firestore-order.service";
 import {CurrencyService} from "../core/services/currency.service";
 import {Trip} from "../core/models/trip";
 import {Order} from "../core/models/order";
@@ -22,8 +22,8 @@ export class HistoryComponent {
   filterUpcoming: boolean = true;
 
   constructor(
-    private tripService: TripService,
-    private orderService: OrderService,
+    private tripService: FirestoreTripService,
+    private orderService: FirestoreOrderService,
     private currencyService: CurrencyService
   ) { }
 
