@@ -8,7 +8,7 @@ import { TripComponent } from "./trip/trip.component";
 
 const routes: Routes = [
   { path: 'trips', component: HomeComponent },
-  { path: '', redirectTo: '/trips', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'cart/:userId', component: CartComponent },
   { path: 'history/:userId', component: HistoryComponent },
   { path: 'trip/:tripId', component: TripComponent },

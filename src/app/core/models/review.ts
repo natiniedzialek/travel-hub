@@ -1,5 +1,5 @@
 export class Review {
-    id: string;
+    _id: string;
     nick: string;
     tripId: string;
     title: string;
@@ -16,7 +16,7 @@ export class Review {
         purchaseDate?: Date,
         id?: string
     ) {
-        this.id = id;
+        this._id = id;
         this.nick = nick;
         this.tripId = tripId;
         this.title = title;

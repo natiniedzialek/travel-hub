@@ -17,42 +17,12 @@ export class TripFilterPipe implements PipeTransform {
     }
 
     return trips.filter(trip =>
-      this.filterByRating(trip, filters.minRating) &&
       this.filterByDestination(trip, filters.destination) &&
       this.filterByPrice(trip, filters.minPrice, filters.maxPrice) &&
       this.filterByDate(trip, filters.startDate, filters.endDate)
     );
   }
 
-  // TODO: Fix this
-  private countMean(reviews: Review[]): number {
-    if (reviews.length === 0) {
-      return 0;
-    }
-
-    let sum = 0;
-    for (let i = 0; i < reviews.length; i++) {
-      sum += reviews[i].rating;
-    }
-
-    return sum / reviews.length;
-  }
-
-  private async filterByRating(trip: Trip, minRating: number): Promise<boolean> {
-    try {
-      const reviews = await lastValueFrom(this.reviewService.getReviews(trip.id));
-      if (reviews.length === 0) {
-        return false;
-      }
-
-      const mean = this.countMean(reviews);
-
-      return mean >= minRating;
-    } catch (error) {
-      console.error('Error fetching reviews:', error);
-      throw error;
-    }
-  }
 
   private filterByDestination(trip: Trip, destinations: string[]): boolean {
     if (destinations.length === 0) {

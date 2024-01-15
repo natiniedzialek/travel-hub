@@ -1,5 +1,5 @@
 export class User {
-    id: string;
+    _id: string;
     userName: string;
     password: string;
 
@@ -8,7 +8,7 @@ export class User {
         userName: string,
         password: string
     ) {
-        this.id = id;
+        this._id = id;
         this.userName = userName;
         this.password = password;
     }

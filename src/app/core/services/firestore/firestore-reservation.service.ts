@@ -2,11 +2,12 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Reservation} from '../../models/reservation';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
+import {ReservationService} from "../interface/reservation.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class FirestoreReservationService {
+export class FirestoreReservationService implements ReservationService {
   private reservationsCollection: AngularFirestoreCollection<Reservation>;
 
   constructor(private firestore: AngularFirestore) {
@@ -19,7 +20,7 @@ export class FirestoreReservationService {
 
 
   deleteReservation(id: string) {
-    this.reservationsCollection.ref.where('id', '==', id).get().then(querySnapshot => {
+    this.reservationsCollection.ref.where('_id', '==', id).get().then(querySnapshot => {
       return this.reservationsCollection.doc(querySnapshot.docs[0].id).delete();
     });
   }
@@ -47,9 +48,9 @@ export class FirestoreReservationService {
         this.reservationsCollection.doc(querySnapshot.docs[0].id).update({ count: updatedCount });
       } else {
         const newReservation = {
-          id: this.firestore.createId(),
+          _id: this.firestore.createId(),
           tripId: tripId,
-          userId: '1',
+          userId: '65a47a7b26d03db5c32b3dcb',
           count: 1,
           selected: true
         };

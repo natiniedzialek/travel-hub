@@ -1,61 +1,83 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FirestoreTripService} from "../core/services/firestore/firestore-trip.service";
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Trip} from "../core/models/trip";
 import {CurrencyService} from "../core/services/currency.service";
 import {FirestoreReservationService} from "../core/services/firestore/firestore-reservation.service";
 import {Reservation} from "../core/models/reservation";
+import {Database, DatabaseInfoService} from "../core/services/database-info.service";
+import {RestTripService} from "../core/services/rest/rest-trip.service";
+import {RestReservationService} from "../core/services/rest/rest-reservation.service";
+import {TripService} from "../core/services/interface/trip.service";
+import {ReservationService} from "../core/services/interface/reservation.service";
 
 @Component({
-  selector: 'app-trip',
-  templateUrl: './trip.component.html',
-  styleUrl: './trip.component.css'
+    selector: 'app-trip', templateUrl: './trip.component.html', styleUrl: './trip.component.css'
 })
 export class TripComponent {
-  tripId: string;
-  trip: Trip;
-  currencyCode: string = this.currencyService.getCurrency();
-  carouselImages: string[];
-  reservationsCount: { [key: string]: number } = {};
+    tripId: string;
+    trip: Trip;
+    currencyCode: string = this.currencyService.getCurrency();
+    carouselImages: string[];
+    reservationsCount: { [key: string]: number } = {};
 
-  constructor(
-      private route: ActivatedRoute,
-      private tripService: FirestoreTripService,
-      private currencyService: CurrencyService,
-      private reservationService: FirestoreReservationService
-  ) { }
+    tripService: TripService;
+    reservationService: ReservationService;
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.tripId = params['tripId'];
-    });
+    constructor(
+        private databaseInfoService: DatabaseInfoService,
+        private route: ActivatedRoute,
+        private firestoreTripService: FirestoreTripService,
+        private restTripService: RestTripService,
+        private currencyService: CurrencyService,
+        private firestoreReservationService: FirestoreReservationService,
+        private restReservationService: RestReservationService
+    ) { }
 
-    this.currencyService.currencyChange$.subscribe(newCurrency => {
-      this.currencyCode = newCurrency
-    });
+    ngOnInit(): void {
+        this.databaseInfoService.database$.subscribe((currentDatabase: Database) => {
+            switch (currentDatabase) {
+                case Database.Firestore:
+                    this.tripService = this.firestoreTripService;
+                    this.reservationService = this.firestoreReservationService;
+                    break;
+                case Database.Mongo:
+                    this.tripService = this.restTripService;
+                    this.reservationService = this.restReservationService;
+                    break;
+            }
+        });
 
-    this.tripService.getTrip(this.tripId).subscribe(trip => {
-      this.trip = trip;
-      this.carouselImages = trip.images;
-    });
+        this.route.params.subscribe(params => {
+            this.tripId = params['tripId'];
+        });
 
-    this.reservationService.getReservations().subscribe((reservations: Reservation[]) => {
-      this.reservationsCount = {};
-      reservations.forEach((reservation) => {
-        this.reservationsCount[reservation.tripId] = reservation.count;
-      });
-    });
-  }
+        this.currencyService.currencyChange$.subscribe(newCurrency => {
+            this.currencyCode = newCurrency
+        });
 
-  getReservationCount(tripId: string): number {
-    return this.reservationsCount[tripId] || 0;
-  }
+        this.tripService.getTrip(this.tripId).subscribe(trip => {
+            this.trip = trip;
+            this.carouselImages = trip.images;
+        });
 
-  handlePlusClick(tripId: string): void {
-    this.reservationService.addOneReservation(tripId);
-  }
+        this.reservationService.getReservations().subscribe((reservations: Reservation[]) => {
+            this.reservationsCount = {};
+            reservations.forEach((reservation) => {
+                this.reservationsCount[reservation.tripId] = reservation.count;
+            });
+        });
+    }
 
-  handleMinusClick(tripId: string): void {
-    this.reservationService.deleteOneReservation(tripId);
-  }
+    getReservationCount(tripId: string): number {
+        return this.reservationsCount[tripId] || 0;
+    }
+
+    handlePlusClick(tripId: string): void {
+        this.reservationService.addOneReservation(tripId);
+    }
+
+    handleMinusClick(tripId: string): void {
+        this.reservationService.deleteOneReservation(tripId);
+    }
 }

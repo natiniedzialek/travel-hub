@@ -7,10 +7,10 @@
                 }">
                 <div class="card-body">
                     <div class="remove-button-container">
-                        <button class="remove-btn" aria-label="Close" (click)="handleRemoveClick(trip.id)">
+                        <button class="remove-btn" aria-label="Close" (click)="handleRemoveClick(trip._id)">
                             <i class="bi bi-trash3-fill"></i>
                         </button>
-                        <img class="card-img-top" [routerLink]="'/trip/' + trip.id" [src]="trip.images[0]"
+                        <img class="card-img-top" [routerLink]="'/trip/' + trip._id" [src]="trip.images[0]"
                              alt="{{ trip.name }} Image">
                         <h5 class="card-title">{{ trip.name | uppercase }}</h5>
                         <p class="card-text">{{ trip.description }}</p>
@@ -25,24 +25,24 @@
                                 color: trip.placesLeft > 3 && trip.placesLeft != 0 ? '' : '#FF0000',
                                 }">Places left:</strong> {{ trip.placesLeft }}</p>
                         <div class="card-buttons">
-                            <button class="btn btn-dark" (click)="handlePlusClick(trip.id)"
+                            <button class="btn btn-dark" (click)="handlePlusClick(trip._id)"
                                     [ngStyle]="{
-                                    'opacity': getReservationCount(trip.id) >= trip.placesLeft ? '0' : ''
+                                    'opacity': getReservationCount(trip._id) >= trip.placesLeft ? '0' : ''
                                 }"
-                                    [disabled]="getReservationCount(trip.id) >= trip.placesLeft">+
+                                    [disabled]="getReservationCount(trip._id) >= trip.placesLeft">+
                             </button>
                             <span class="reservationCount">
                                 <ng-container *ngIf="trip.placesLeft === 0; else reservationsCount">
                                 </ng-container>
                                 <ng-template #reservationsCount>
-                                    {{ getReservationCount(trip.id) }}
+                                    {{ getReservationCount(trip._id) }}
                                 </ng-template>
                             </span>
-                            <button class="btn btn-dark" (click)="handleMinusClick(trip.id)"
+                            <button class="btn btn-dark" (click)="handleMinusClick(trip._id)"
                                     [ngStyle]="{
-                                    'opacity': getReservationCount(trip.id) === 0 ? '0' : ''
+                                    'opacity': getReservationCount(trip._id) === 0 ? '0' : ''
                                 }"
-                                    [disabled]="getReservationCount(trip.id) === 0">-
+                                    [disabled]="getReservationCount(trip._id) === 0">-
                             </button>
                         </div>
                         <div *ngIf="trip.placesLeft === 0" class="sold-out-overlay">

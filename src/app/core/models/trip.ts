@@ -1,5 +1,5 @@
 export class Trip {
-    public id: string;
+    public _id: string;
     public name: string;
     public destination: string;
     public startDate: Date;

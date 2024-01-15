@@ -1,18 +1,18 @@
 export class Order {
-    id: string;
+    _id?: string;
     userId: string;
     tripId: string;
     count: number;
     date: Date;
 
     constructor(
-        id: string,
         userId: string,
         tripId: string,
         count: number,
-        date: Date
+        date: Date,
+        id?: string
     ) {
-        this.id = id;
+        this._id = id;
         this.userId = userId;
         this.tripId = tripId;
         this.count = count;

@@ -5,13 +5,14 @@ import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat
 import {FirestoreTripService} from "./firestore-trip.service";
 import {FirestoreReservationService} from "./firestore-reservation.service";
 import {Reservation} from "../../models/reservation";
+import {OrderService} from "../interface/order.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class FirestoreOrderService {
+export class FirestoreOrderService implements OrderService {
   private ordersCollection: AngularFirestoreCollection<Order>;
-  private userId: string = "1";
+  private userId: string = "65a47a7b26d03db5c32b3dcb";
 
   constructor(private firestore: AngularFirestore, private tripService: FirestoreTripService, private reservationService: FirestoreReservationService) {
     this.ordersCollection = this.firestore.collection<Order>('orders');
@@ -19,11 +20,11 @@ export class FirestoreOrderService {
 
   placeOrder(reservations: Reservation[]): void {
     reservations.forEach((reservation: Reservation) => {
-      const order: Order = new Order(this.firestore.createId(), reservation.userId, reservation.tripId, reservation.count, new Date());
+      const order: Order = new Order(reservation.userId, reservation.tripId, reservation.count, new Date(), this.firestore.createId());
       const orderData = JSON.parse(JSON.stringify(order));
       this.ordersCollection.add(orderData);
       this.tripService.updatePlacesLeft(reservation.tripId, reservation.count);
-      this.reservationService.deleteReservation(reservation.id);
+      this.reservationService.deleteReservation(reservation._id);
     });
   }
 

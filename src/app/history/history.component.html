@@ -18,18 +18,18 @@
       <div *ngIf="orders && orders.length > 0; else emptyHistoryMessage">
         <div class="card-deck">
           <ng-container *ngFor="let trip of filteredTrips">
-            <div *ngIf="getOrderCount(trip.id) > 0" class="card shadow mb-5 text-center">
+            <div *ngIf="getOrderCount(trip._id) > 0" class="card shadow mb-5 text-center">
               <div class="card-body">
                 <h5 class="card-title">{{ trip.name }}</h5>
                 <h6 class="card-text"><strong>Status: {{ getTripStatus(trip.startDate, trip.endDate)}} </strong></h6>
                 <p class="card-text">{{ trip.startDate | date: 'dd/MM/yyyy' }}
                   - {{ trip.endDate | date: 'dd/MM/yyyy'}}</p>
                 <p class="card-text">
-                  <strong>Tickets count:</strong> {{ getOrderCount(trip.id) }}</p>
+                  <strong>Tickets count:</strong> {{ getOrderCount(trip._id) }}</p>
                 <p class="card-text">
                   <strong>Price:</strong> {{ trip.unitPrice | currencyFormat: currencyCode }}</p>
                 <p class="card-text">
-                  <strong>Total:</strong> {{ getOrderCount(trip.id) * trip.unitPrice | currencyFormat: currencyCode }}
+                  <strong>Total:</strong> {{ getOrderCount(trip._id) * trip.unitPrice | currencyFormat: currencyCode }}
                 </p>
               </div>
             </div>

@@ -32,24 +32,24 @@
                                 color: trip.placesLeft > 3 && trip.placesLeft != 0 ? '' : '#FF0000',
                                 }">Places left:</strong> {{ trip.placesLeft }}</p>
             <div class="card-buttons">
-                <button class="btn btn-dark" (click)="handlePlusClick(trip.id)"
+                <button class="btn btn-dark" (click)="handlePlusClick(trip._id)"
                         [ngStyle]="{
-                                    'opacity': getReservationCount(trip.id) >= trip.placesLeft ? '0' : ''
+                                    'opacity': getReservationCount(trip._id) >= trip.placesLeft ? '0' : ''
                                 }"
-                        [disabled]="getReservationCount(trip.id) >= trip.placesLeft">+
+                        [disabled]="getReservationCount(trip._id) >= trip.placesLeft">+
                 </button>
                 <span class="reservationCount">
                                 <ng-container *ngIf="trip.placesLeft === 0; else reservationsCount">
                                 </ng-container>
                                 <ng-template #reservationsCount>
-                                    {{ getReservationCount(trip.id) }}
+                                    {{ getReservationCount(trip._id) }}
                                 </ng-template>
                             </span>
-                <button class="btn btn-dark" (click)="handleMinusClick(trip.id)"
+                <button class="btn btn-dark" (click)="handleMinusClick(trip._id)"
                         [ngStyle]="{
-                                    'opacity': getReservationCount(trip.id) === 0 ? '0' : ''
+                                    'opacity': getReservationCount(trip._id) === 0 ? '0' : ''
                                 }"
-                        [disabled]="getReservationCount(trip.id) === 0">-
+                        [disabled]="getReservationCount(trip._id) === 0">-
                 </button>
             </div>
         </div>
@@ -57,7 +57,7 @@
             <iframe [src]="trip.mapSrc | safe" width="500" height="300" style="border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-    <app-review [tripId]="trip.id"></app-review>
+    <app-review [tripId]="trip._id"></app-review>
 </div>
 <app-footer></app-footer>
 <div class="footer"></div>
